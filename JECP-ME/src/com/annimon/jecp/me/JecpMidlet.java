@@ -10,14 +10,14 @@ import javax.microedition.midlet.MIDlet;
 public abstract class JecpMidlet extends MIDlet implements ApplicationListener {
 
     protected final void startApp() {
-        onCreate();
+        onStartApp();
     }
 
     protected final void pauseApp() {
-        onPause();
+        onPauseApp();
     }
 
     protected final void destroyApp(boolean unconditional) {
-        onExit();
+        onDestroyApp();
     }
 }
