@@ -11,4 +11,6 @@ public interface ApplicationListener {
     public void onPauseApp();
     
     public void onDestroyApp();
+    
+    public void onPaint(JecpGraphics g);
 }
