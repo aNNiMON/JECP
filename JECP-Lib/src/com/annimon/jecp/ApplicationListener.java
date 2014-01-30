@@ -6,9 +6,9 @@ package com.annimon.jecp;
  */
 public interface ApplicationListener {
     
-    public void onCreate();
+    public void onStartApp();
     
-    public void onPause();
+    public void onPauseApp();
     
-    public void onExit();
+    public void onDestroyApp();
 }
