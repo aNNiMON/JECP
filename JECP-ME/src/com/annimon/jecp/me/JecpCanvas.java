@@ -23,6 +23,8 @@ public class JecpCanvas extends Canvas {
         int height = getHeight();
         image = Image.createImage(width, height);
         Graphics g = image.getGraphics();
+        
+        listener.onStartApp(width, height);
         listener.onPaint(new JecpGraphics(g));
     }
 

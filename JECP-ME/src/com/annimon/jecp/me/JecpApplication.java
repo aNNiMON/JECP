@@ -16,7 +16,6 @@ public abstract class JecpApplication extends MIDlet implements ApplicationListe
     protected final void startApp() {
         midlet = this;
         display = Display.getDisplay(this);
-        onStartApp();
         display.setCurrent(new JecpCanvas(this));
     }
 
