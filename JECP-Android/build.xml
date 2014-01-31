@@ -66,6 +66,15 @@
             -post-build
             -pre-clean
     -->
+    <target name="-pre-compile">
+      <echo level="info">Extract libraries from ${jar.libs.dir} to ${out.classes.absolute.dir}</echo>
+      <unjar dest="${out.classes.absolute.dir}">
+         <patternset id="sources">
+            <include name="com/annimon/**/*.class"/>
+         </patternset>
+         <fileset dir="${jar.libs.dir}" includes="*.jar" />
+      </unjar>
+    </target>
     <import file="custom_rules.xml" optional="true" />
 
     <!-- Import the actual build file.
