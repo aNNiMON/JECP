@@ -3,7 +3,7 @@
           package="com.annimon.jecp"
           android:versionCode="1"
           android:versionName="1.0">
-    <library android:name="jecp">
+    <application>
         
-    </library>
+    </application>
 </manifest>
