@@ -10,17 +10,19 @@ import javax.swing.WindowConstants;
  *
  * @author aNNiMON
  */
-public abstract class JecpApplication extends JFrame implements ApplicationListener, WindowListener {
+public abstract class JecpApplication extends JFrame implements WindowListener {
     
+    private final ApplicationListener listener;
     private final JecpPaintPanel panel;
 
-    public JecpApplication(int width, int height) {
+    public JecpApplication(ApplicationListener listener, int width, int height) {
+        this.listener = listener;
         addWindowListener(JecpApplication.this);
         setLocationByPlatform(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
-        onStartApp(width, height);
-        panel = new JecpPaintPanel(this, width, height);
+        listener.onStartApp(width, height);
+        panel = new JecpPaintPanel(listener, width, height);
         add(panel);
         pack();
         
@@ -29,12 +31,12 @@ public abstract class JecpApplication extends JFrame implements ApplicationListe
 
     @Override
     public void windowClosing(WindowEvent e) {
-        onDestroyApp();
+        listener.onDestroyApp();
     }
     
     @Override
     public void windowDeactivated(WindowEvent e) {
-        onPauseApp();
+        listener.onPauseApp();
     }
     
     @Override
