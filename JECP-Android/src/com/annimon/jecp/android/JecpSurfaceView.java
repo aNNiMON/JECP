@@ -24,6 +24,7 @@ public class JecpSurfaceView extends SurfaceView implements SurfaceHolder.Callba
 
     public JecpSurfaceView(JecpApplication activity, ApplicationListener listener) {
         super(activity);
+        setWillNotDraw(false);
         mActivity = activity;
         mListener = listener;
         
@@ -41,13 +42,11 @@ public class JecpSurfaceView extends SurfaceView implements SurfaceHolder.Callba
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-        mThread.start();
+        invalidate();
     }
 
     @Override
-    public void surfaceChanged(SurfaceHolder holder, int format, int newW, int newH) {
-        
-    }
+    public void surfaceChanged(SurfaceHolder holder, int format, int newW, int newH) { }
 
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
@@ -65,6 +64,7 @@ public class JecpSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     protected void onDraw(Canvas canvas) {
         if (!mIsInit) {
             mListener.onStartApp(canvas.getWidth(), canvas.getHeight());
+            mThread.start();
             mIsInit = true;
         }
         
