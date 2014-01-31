@@ -15,6 +15,7 @@ public abstract class JecpApplication extends JFrame implements ApplicationListe
     private final JecpPaintPanel panel;
 
     public JecpApplication(int width, int height) {
+        addWindowListener(JecpApplication.this);
         setLocationByPlatform(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
