@@ -18,11 +18,12 @@ public abstract class JecpApplication extends JFrame implements ApplicationListe
         setLocationByPlatform(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
+        onStartApp(width, height);
         panel = new JecpPaintPanel(this, width, height);
         add(panel);
         pack();
         
-        onStartApp(width, height);
+        setVisible(true);
     }
 
     @Override
