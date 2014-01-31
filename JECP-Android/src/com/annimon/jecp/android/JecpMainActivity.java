@@ -9,19 +9,21 @@ public abstract class JecpMainActivity extends Activity implements ApplicationLi
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        onStartApp();
+        final JecpSurfaceView view = new JecpSurfaceView(this);
+        view.setFocusable(true);
+        setContentView(view);
     }
 
     @Override
     protected void onPause() {
-        super.onPause();
         onPauseApp();
+        super.onPause();
     }
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
         onDestroyApp();
+        super.onDestroy();
     }
     
 }
