@@ -13,4 +13,6 @@ public interface ApplicationListener {
     public void onDestroyApp();
     
     public void onPaint(JecpGraphics g);
+    
+    public void onUpdate();
 }
