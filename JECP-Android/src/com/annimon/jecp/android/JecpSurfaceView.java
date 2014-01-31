@@ -11,7 +11,7 @@ import android.view.SurfaceView;
  */
 public class JecpSurfaceView extends SurfaceView implements SurfaceHolder.Callback {
 
-    private final JecpMainActivity mActivity;
+    private final JecpApplication mActivity;
     private final JecpGraphics mGraphics;
 
     private final Paint mPaint;
@@ -20,7 +20,7 @@ public class JecpSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     
     private boolean mIsInit;
 
-    public JecpSurfaceView(JecpMainActivity activity) {
+    public JecpSurfaceView(JecpApplication activity) {
         super(activity);
         mActivity = activity;
         

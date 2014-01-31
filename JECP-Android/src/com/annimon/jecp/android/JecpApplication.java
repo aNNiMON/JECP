@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import com.annimon.jecp.ApplicationListener;
 
-public abstract class JecpMainActivity extends Activity implements ApplicationListener {
+public abstract class JecpApplication extends Activity implements ApplicationListener {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
