@@ -4,6 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import com.annimon.jecp.ApplicationListener;
 
 /**
  *
@@ -11,6 +12,7 @@ import android.view.SurfaceView;
  */
 public class JecpSurfaceView extends SurfaceView implements SurfaceHolder.Callback {
 
+    private final ApplicationListener mListener;
     private final JecpApplication mActivity;
     private final JecpGraphics mGraphics;
 
@@ -20,9 +22,10 @@ public class JecpSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     
     private boolean mIsInit;
 
-    public JecpSurfaceView(JecpApplication activity) {
+    public JecpSurfaceView(JecpApplication activity, ApplicationListener listener) {
         super(activity);
         mActivity = activity;
+        mListener = listener;
         
         mIsInit = false;
 
@@ -61,12 +64,12 @@ public class JecpSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     @Override
     protected void onDraw(Canvas canvas) {
         if (!mIsInit) {
-            mActivity.onStartApp(canvas.getWidth(), canvas.getHeight());
+            mListener.onStartApp(canvas.getWidth(), canvas.getHeight());
             mIsInit = true;
         }
         
         mGraphics.setCanvas(canvas);
-        mActivity.onPaint(mGraphics);
+        mListener.onPaint(mGraphics);
     }
 
     private class DrawingThread extends Thread {
@@ -78,7 +81,7 @@ public class JecpSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             Canvas c;
 
             while (mKeepRunning) {
-                mActivity.onUpdate();
+                mListener.onUpdate();
                 c = null;
 
                 try {
