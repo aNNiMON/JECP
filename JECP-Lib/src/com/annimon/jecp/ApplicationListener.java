@@ -6,7 +6,7 @@ package com.annimon.jecp;
  */
 public interface ApplicationListener {
     
-    public void onStartApp();
+    public void onStartApp(int width, int height);
     
     public void onPauseApp();
     
