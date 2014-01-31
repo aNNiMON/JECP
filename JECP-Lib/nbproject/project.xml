@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://www.netbeans.org/ns/project/1">
-    <type>org.netbeans.modules.java.j2seproject</type>
+    <type>org.netbeans.modules.kjava.j2meproject</type>
     <configuration>
-        <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
+        <data xmlns="http://www.netbeans.org/ns/j2me-project">
             <name>JECP-Lib</name>
-            <source-roots>
-                <root id="src.dir"/>
-            </source-roots>
-            <test-roots>
-                <root id="test.src.dir"/>
-            </test-roots>
+            <minimum-ant-version>1.6</minimum-ant-version>
         </data>
     </configuration>
 </project>
