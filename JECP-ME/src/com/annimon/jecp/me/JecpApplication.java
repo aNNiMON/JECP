@@ -8,7 +8,7 @@ import javax.microedition.midlet.MIDlet;
  *
  * @author aNNiMON
  */
-public abstract class JecpMidlet extends MIDlet implements ApplicationListener {
+public abstract class JecpApplication extends MIDlet implements ApplicationListener {
     
     private MIDlet midlet;
     private Display display;
@@ -26,5 +26,6 @@ public abstract class JecpMidlet extends MIDlet implements ApplicationListener {
 
     protected final void destroyApp(boolean unconditional) {
         onDestroyApp();
+        notifyDestroyed();
     }
 }
