@@ -78,7 +78,7 @@ public class JecpSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             Canvas c;
 
             while (mKeepRunning) {
-                // update();
+                mActivity.onUpdate();
                 c = null;
 
                 try {
