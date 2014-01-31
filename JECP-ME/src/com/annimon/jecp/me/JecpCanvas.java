@@ -69,6 +69,7 @@ public class JecpCanvas extends Canvas {
 
         public void run() {
             while (keepRunning) {
+                listener.onUpdate();
                 repaint();
                 try {
                     Thread.sleep(5L);
