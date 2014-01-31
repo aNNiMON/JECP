@@ -8,23 +8,36 @@ import javax.microedition.midlet.MIDlet;
  *
  * @author aNNiMON
  */
-public abstract class JecpApplication extends MIDlet implements ApplicationListener {
+public abstract class JecpApplication extends MIDlet {
     
-    private MIDlet midlet;
-    private Display display;
-
+    private final ApplicationListener listener;
+    private static MIDlet midlet;
+    private static Display display;
+    
+    public JecpApplication(ApplicationListener listener) {
+        this.listener = listener;
+    }
+    
     protected final void startApp() {
         midlet = this;
         display = Display.getDisplay(this);
-        display.setCurrent(new JecpCanvas(this));
+        display.setCurrent(new JecpCanvas(listener));
     }
 
     protected final void pauseApp() {
-        onPauseApp();
+        listener.onPauseApp();
     }
 
     protected final void destroyApp(boolean unconditional) {
-        onDestroyApp();
+        listener.onDestroyApp();
         notifyDestroyed();
+    }
+
+    public static MIDlet getMidlet() {
+        return midlet;
+    }
+
+    public static Display getDisplay() {
+        return display;
     }
 }
