@@ -9,14 +9,14 @@ import com.annimon.jecp.Keys;
  * Graphics demo with processing keys.
  * @author aNNiMON
  */
-public class Screen2 extends Screen {
+public class CellsScreen extends Screen {
     
     private static final int HIGHLIGHT_CELLS_COUNT = 5;
     private int cellsCount;
     
     private final HighlightCell[] cells;
 
-    public Screen2(int width, int height) {
+    public CellsScreen(int width, int height) {
         super(width, height);
         cellsCount = 20;
         cells = new HighlightCell[HIGHLIGHT_CELLS_COUNT];

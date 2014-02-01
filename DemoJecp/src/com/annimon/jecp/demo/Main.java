@@ -47,10 +47,10 @@ public class Main implements ApplicationListener, Screen.OnNextScreenListener {
     private void initScreen() {
         switch (screenIndex) {
             case 1:
-                currentScreen = new Screen1(width, height);
+                currentScreen = new LinesScreen(width, height);
                 break;
             case 2:
-                currentScreen = new Screen2(width, height);
+                currentScreen = new CellsScreen(width, height);
                 break;
         }
         currentScreen.setOnNextScreenListener(this);

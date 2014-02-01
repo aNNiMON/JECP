@@ -9,13 +9,13 @@ import com.annimon.jecp.demo.DynamicLine;
  * Lines animation demo.
  * @author aNNiMON
  */
-public class Screen1 extends Screen {
+public class LinesScreen extends Screen {
     
     private static final int LINES_COUNT = 5;
     
     private final DynamicLine[] lines;
 
-    public Screen1(int width, int height) {
+    public LinesScreen(int width, int height) {
         super(width, height);
         lines = new DynamicLine[LINES_COUNT];
         for (int i = 0; i < LINES_COUNT; i++) {
