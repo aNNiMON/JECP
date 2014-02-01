@@ -9,7 +9,7 @@ import com.annimon.jecp.demo.screens.*;
  */
 public class Main implements ApplicationListener, Screen.OnNextScreenListener {
     
-    private static final int SCREEN_FIRST = 1, SCREEN_LAST = 2;
+    private static final int SCREEN_FIRST = 1, SCREEN_LAST = 3;
     
     private int width, height;
     
@@ -51,6 +51,9 @@ public class Main implements ApplicationListener, Screen.OnNextScreenListener {
                 break;
             case 2:
                 currentScreen = new CellsScreen(width, height);
+                break;
+            case 3:
+                currentScreen = new ControllingSquareScreen(width, height);
                 break;
         }
         currentScreen.setOnNextScreenListener(this);
