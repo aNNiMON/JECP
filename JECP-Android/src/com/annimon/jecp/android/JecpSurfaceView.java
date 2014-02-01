@@ -2,9 +2,12 @@ package com.annimon.jecp.android;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import com.annimon.jecp.ApplicationListener;
+import com.annimon.jecp.Jecp;
 
 /**
  *
@@ -60,6 +63,40 @@ public class JecpSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     protected void onDraw(Canvas canvas) {
         mGraphics.setCanvas(canvas);
         mListener.onPaint(mGraphics);
+    }
+    
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (Jecp.inputListener != null) {
+            if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                Jecp.inputListener.onKeyPressed(keyCode);
+                return true;
+            } else if (event.getAction() == KeyEvent.ACTION_UP) {
+                Jecp.inputListener.onKeyReleased(keyCode);
+                return true;
+            }
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (Jecp.inputListener != null) {
+            final int x = (int) event.getX();
+            final int y = (int) event.getY();
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    Jecp.inputListener.onPointerPressed(x, y);
+                    return true;
+                case MotionEvent.ACTION_UP:
+                    Jecp.inputListener.onPointerReleased(x, y);
+                    return true;
+                case MotionEvent.ACTION_MOVE:
+                    Jecp.inputListener.onPointerDragged(x, y);
+                    return true;
+            }
+        }
+        return super.onTouchEvent(event);
     }
 
     private class DrawingThread extends Thread {
