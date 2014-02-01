@@ -39,42 +39,30 @@ public class JecpCanvas extends Canvas {
         listener.onPaint(graphics);
         g.drawImage(image, 0, 0, Graphics.TOP | Graphics.LEFT);
     }
-
     
     protected void keyPressed(int keyCode) {
         if (Jecp.inputListener != null) {
             Jecp.inputListener.onKeyPressed(keyCode);
         }
     }
-
     
     protected void keyReleased(int keyCode) {
         if (Jecp.inputListener != null) {
             Jecp.inputListener.onKeyReleased(keyCode);
         }
     }
-
-    
-    protected void keyRepeated(int keyCode) {
-        if (Jecp.inputListener != null) {
-            Jecp.inputListener.onKeyRepeated(keyCode);
-        }
-    }
-
     
     protected void pointerDragged(int x, int y) {
         if (Jecp.inputListener != null) {
             Jecp.inputListener.onPointerDragged(x, y);
         }
     }
-
     
     protected void pointerPressed(int x, int y) {
         if (Jecp.inputListener != null) {
             Jecp.inputListener.onPointerPressed(x, y);
         }
     }
-
     
     protected void pointerReleased(int x, int y) {
         if (Jecp.inputListener != null) {
