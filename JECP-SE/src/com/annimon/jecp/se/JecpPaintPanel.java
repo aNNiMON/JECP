@@ -12,6 +12,8 @@ import javax.swing.JPanel;
  */
 public class JecpPaintPanel extends JPanel {
     
+    private static final InputListenerSE INPUT_LISTENER = new InputListenerSE();
+    
     private final ApplicationListener listener;
     private final DrawingThread thread;
     private final BufferedImage image;
@@ -20,6 +22,9 @@ public class JecpPaintPanel extends JPanel {
     public JecpPaintPanel(ApplicationListener listener, int width, int height) {
         this.listener = listener;
         setFocusable(true);
+        addMouseListener(INPUT_LISTENER);
+        addMouseMotionListener(INPUT_LISTENER);
+        addKeyListener(INPUT_LISTENER);
         setPreferredSize(new Dimension(width, height));
         
         image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
