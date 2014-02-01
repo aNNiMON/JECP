@@ -28,6 +28,9 @@ public class JecpSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         mActivity = activity;
         mListener = listener;
         
+        requestFocus();
+        setFocusableInTouchMode(true);
+        
         mSurfaceHolder = getHolder();
         mSurfaceHolder.addCallback(JecpSurfaceView.this);
         

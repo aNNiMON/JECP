@@ -1,4 +1,3 @@
-
 package com.annimon.jecp;
 
 /**
@@ -44,6 +43,25 @@ public class Keys {
             VK_S = 83,
             VK_A = 65,
             VK_D = 68;
+    
+    /** Android keys */
+    public static final int
+            ANDRO_LEFT = 21,
+            ANDRO_UP = 19,
+            ANDRO_RIGHT = 22,
+            ANDRO_DOWN = 20,
+            ANDRO_ENTER = 66,
+            ANDRO_SPACE = 62,
+            ANDRO_W = 51,
+            ANDRO_S = 47,
+            ANDRO_A = 29,
+            ANDRO_D = 32,
+            ANDRO_BACKSPACE = 67,
+            ANDRO_MENU = 82,
+            ANDRO_BACK = 4,
+            ANDRO_FOCUS = 80,
+            ANDRO_CAMERA = 27;
+    
     
     public static final int convertToDpad(int key) {
         if (wasdAsDpad) {
