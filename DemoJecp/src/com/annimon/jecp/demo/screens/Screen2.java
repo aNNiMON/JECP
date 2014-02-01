@@ -3,6 +3,7 @@ package com.annimon.jecp.demo.screens;
 
 import com.annimon.jecp.JecpGraphics;
 import com.annimon.jecp.JecpRandom;
+import com.annimon.jecp.Keys;
 
 /**
  * Graphics demo with processing keys.
@@ -23,6 +24,7 @@ public class Screen2 extends Screen {
             cells[i] = new HighlightCell();
             cells[i].reinit();
         }
+        Keys.numericdAsDpad = true;
     }
     
     public void onPaint(JecpGraphics g) {
@@ -50,12 +52,13 @@ public class Screen2 extends Screen {
     }
     
     public void onKeyPressed(int key) {
-        if (key == 52) {
+        int dpad = Keys.convertToDpad(key);
+        if (dpad == Keys.DPAD_LEFT) {
             cellsCount--;
             if (cellsCount < 3) {
                 cellsCount = 3;
             }
-        } else if (key == 54) {
+        } else if (dpad == Keys.DPAD_RIGHT) {
             cellsCount++;
             if (cellsCount > 30) {
                 cellsCount = 30;

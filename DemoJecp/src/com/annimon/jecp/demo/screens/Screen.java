@@ -4,6 +4,7 @@ package com.annimon.jecp.demo.screens;
 import com.annimon.jecp.InputListener;
 import com.annimon.jecp.Jecp;
 import com.annimon.jecp.JecpGraphics;
+import com.annimon.jecp.Keys;
 
 /**
  *
@@ -51,8 +52,7 @@ public abstract class Screen implements InputListener {
 
     public void onKeyPressed(int key) {
         if (nextScreenListener != null) {
-            if (key == 35) {
-                // #
+            if (key == Keys.KEY_POUND || key == Keys.VK_ENTER) {
                 nextScreenListener.onNextScreen();
             }
         }
