@@ -9,7 +9,7 @@ import com.annimon.jecp.se.JecpApplication;
 public class Demo extends JecpApplication {
     
     public static void main(String[] args) {
-        new Demo(240, 320);
+        new Demo(480, 640);
     }
     
     public Demo(int width, int height) {
