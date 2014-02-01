@@ -78,11 +78,6 @@ public class JecpCanvas extends Canvas {
             while (keepRunning) {
                 listener.onUpdate();
                 repaint();
-                try {
-                    Thread.sleep(5L);
-                } catch (InterruptedException ex) {
-                    Thread.currentThread().interrupt();
-                }
             }
         }
     }

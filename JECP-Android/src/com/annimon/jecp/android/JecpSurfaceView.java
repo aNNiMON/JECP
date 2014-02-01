@@ -123,12 +123,6 @@ public class JecpSurfaceView extends SurfaceView implements SurfaceHolder.Callba
                         mSurfaceHolder.unlockCanvasAndPost(c);
                     }
                 }
-
-                try {
-                    Thread.sleep(5L);
-                } catch (InterruptedException ex) {
-                    Thread.currentThread().interrupt();
-                }
             }
         }
     }
