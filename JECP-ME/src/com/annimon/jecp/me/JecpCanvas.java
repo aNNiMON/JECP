@@ -1,6 +1,7 @@
 package com.annimon.jecp.me;
 
 import com.annimon.jecp.ApplicationListener;
+import com.annimon.jecp.Jecp;
 import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
@@ -41,26 +42,44 @@ public class JecpCanvas extends Canvas {
 
     
     protected void keyPressed(int keyCode) {
+        if (Jecp.inputListener != null) {
+            Jecp.inputListener.onKeyPressed(keyCode);
+        }
     }
 
     
     protected void keyReleased(int keyCode) {
+        if (Jecp.inputListener != null) {
+            Jecp.inputListener.onKeyReleased(keyCode);
+        }
     }
 
     
     protected void keyRepeated(int keyCode) {
+        if (Jecp.inputListener != null) {
+            Jecp.inputListener.onKeyRepeated(keyCode);
+        }
     }
 
     
     protected void pointerDragged(int x, int y) {
+        if (Jecp.inputListener != null) {
+            Jecp.inputListener.onPointerDragged(x, y);
+        }
     }
 
     
     protected void pointerPressed(int x, int y) {
+        if (Jecp.inputListener != null) {
+            Jecp.inputListener.onPointerPressed(x, y);
+        }
     }
 
     
     protected void pointerReleased(int x, int y) {
+        if (Jecp.inputListener != null) {
+            Jecp.inputListener.onPointerReleased(x, y);
+        }
     }
     
     private class DrawingThread extends Thread {
