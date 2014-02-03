@@ -44,7 +44,7 @@ public class JecpGraphics implements com.annimon.jecp.JecpGraphics {
     
     @Override
     public void drawString(String text, int x, int y) {
-        g.drawString(text, x, y);
+        g.drawString(text, x, y + getTextHeight());
     }
     
     @Override
