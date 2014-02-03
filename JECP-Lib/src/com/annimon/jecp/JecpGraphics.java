@@ -33,6 +33,8 @@ public interface JecpGraphics {
     
     public int getTextWidth(String text);
     
+    public int getTextHeight();
+    
     public void setColor(int color);
     
     public void setColor(int red, int green, int blue);

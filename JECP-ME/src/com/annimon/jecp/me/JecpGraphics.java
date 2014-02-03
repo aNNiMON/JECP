@@ -50,6 +50,10 @@ public class JecpGraphics implements com.annimon.jecp.JecpGraphics {
     public int getTextWidth(String text) {
         return g.getFont().stringWidth(text);
     }
+    
+    public int getTextHeight() {
+        return g.getFont().getHeight();
+    }
 
     public void setColor(int color) {
         g.setColor(color);

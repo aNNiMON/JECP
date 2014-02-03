@@ -56,6 +56,11 @@ public class JecpGraphics implements com.annimon.jecp.JecpGraphics {
     public int getTextWidth(String text) {
         return g.getFontMetrics().stringWidth(text);
     }
+    
+    @Override
+    public int getTextHeight() {
+        return g.getFontMetrics().getHeight();
+    }
 
     @Override
     public void setColor(int color) {

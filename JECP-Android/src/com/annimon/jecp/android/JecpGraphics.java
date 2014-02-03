@@ -63,6 +63,12 @@ public class JecpGraphics implements com.annimon.jecp.JecpGraphics {
     public int getTextWidth(String text) {
         return (int) mPaint.measureText(text);
     }
+    
+    @Override
+    public int getTextHeight() {
+        Paint.FontMetrics fm = mPaint.getFontMetrics();
+        return (int) (fm.descent - fm.ascent + fm.leading);
+    }
 
     @Override
     public void setColor(int color) {
