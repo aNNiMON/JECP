@@ -12,6 +12,8 @@ import com.annimon.jecp.Keys;
  */
 public abstract class Screen implements InputListener {
     
+    private static final String NEXT_SCREEN_BUTTON_TEXT = "->";
+    
     public interface OnNextScreenListener {
         void onNextScreen();
     }
@@ -39,13 +41,10 @@ public abstract class Screen implements InputListener {
         g.setColor(0xFFFF0000);
         g.fillRect(width - nextScreenButtonSize, height - nextScreenButtonSize,
                 nextScreenButtonSize, nextScreenButtonSize);
+        final int x = width - (nextScreenButtonSize + g.getTextWidth(NEXT_SCREEN_BUTTON_TEXT)) / 2;
+        final int y = height - (nextScreenButtonSize + g.getTextHeight()) / 2;
         g.setColor(0xFFFFFFFF);
-        g.drawLine(width - nextScreenButtonSize, height - nextScreenButtonSize / 2,
-                width, height - nextScreenButtonSize / 2);
-        g.drawLine(width - nextScreenButtonSize / 4, height - nextScreenButtonSize,
-                width, height - nextScreenButtonSize / 2);
-        g.drawLine(width - nextScreenButtonSize / 4, height,
-                width, height - nextScreenButtonSize / 2);
+        g.drawString(NEXT_SCREEN_BUTTON_TEXT, x, y);
     }
     
     public abstract void onUpdate();
