@@ -17,6 +17,7 @@
 
 package com.annimon.jecp.me;
 
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
 /**
@@ -29,6 +30,7 @@ public class JecpGraphics implements com.annimon.jecp.JecpGraphics {
     
     protected JecpGraphics(Graphics g) {
         this.g = g;
+        g.setFont(Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, Font.SIZE_SMALL));
     }
     
     public void drawLine(int x1, int y1, int x2, int y2) {
