@@ -39,6 +39,10 @@ public class JecpGraphics implements com.annimon.jecp.JecpGraphics {
         g.drawRect(x, y, width, height);
     }
     
+    public void drawString(String text, int x, int y) {
+        g.drawString(text, x, y, Graphics.TOP | Graphics.LEFT);
+    }
+    
     public void fillRect(int x, int y, int width, int height) {
         g.fillRect(x, y, width, height);
     }

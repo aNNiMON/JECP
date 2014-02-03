@@ -27,6 +27,8 @@ public interface JecpGraphics {
     
     public void drawRect(int x, int y, int width, int height);
     
+    public void drawString(String text, int x, int y);
+    
     public void fillRect(int x, int y, int width, int height);
     
     public void setColor(int color);

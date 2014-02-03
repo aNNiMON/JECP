@@ -43,6 +43,11 @@ public class JecpGraphics implements com.annimon.jecp.JecpGraphics {
     }
     
     @Override
+    public void drawString(String text, int x, int y) {
+        g.drawString(text, x, y);
+    }
+    
+    @Override
     public void fillRect(int x, int y, int width, int height) {
         g.fillRect(x, y, width, height);
     }

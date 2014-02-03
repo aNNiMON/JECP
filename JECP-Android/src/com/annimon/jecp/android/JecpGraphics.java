@@ -45,6 +45,10 @@ public class JecpGraphics implements com.annimon.jecp.JecpGraphics {
         mPaint.setStyle(Paint.Style.STROKE);
         mCanvas.drawRect(x, y, x + width, y + height, mPaint);
     }
+    
+    public void drawString(String text, int x, int y) {
+        mCanvas.drawText(text, x, y, mPaint);
+    }
 
     public void fillRect(int x, int y, int width, int height) {
         mPaint.setStyle(Paint.Style.FILL);
