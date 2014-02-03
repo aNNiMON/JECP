@@ -28,7 +28,7 @@ public class VisualMEScreen extends Screen {
     private final float len;
     
     // Color change mode
-    private boolean redChange,  greenChange,  blueChange;
+    private boolean isColorDecrement;
     private int rc,  gc,  bc;
     private int rgbChangeMode,  visualMode,  colorMode;
     
@@ -53,7 +53,7 @@ public class VisualMEScreen extends Screen {
         rc = 0;
         gc = 0;
         bc = 0;
-        rgbChangeMode = 1;
+        rgbChangeMode = JecpRandom.rand(6) + 1;
         visualMode = 1;
         colorMode = 1;
         
@@ -230,128 +230,123 @@ public class VisualMEScreen extends Screen {
     
     private void rgb() {
         if (rgbChangeMode == 1) {
-            rc++;
-            if (rc > 253) {
+            if (isColorDecrement) {
                 rc--;
-                redChange = true;
-            }
-            if (redChange == true) {
-                rc = rc - 2;
-            }
-            if (rc < 18 && redChange == true) {
-                rc = 0;
-                redChange = false;
-                rgbChangeMode++;
+                if (rc < 18) {
+                    rc = 0;
+                    isColorDecrement = false;
+                    rgbChangeMode++;
+                }
+            } else {
+                rc++;
+                if (rc > 253) {
+                    isColorDecrement = true;
+                }
             }
         }
         else if (rgbChangeMode == 2) {
-            gc++;
-            if (gc > 253) {
+            if (isColorDecrement) {
                 gc--;
-                greenChange = true;
-            }
-            if (greenChange == true) {
-                gc = gc - 2;
-            }
-            if (gc < 18 && greenChange == true) {
-                gc = 0;
-                greenChange = false;
-                rgbChangeMode++;
+                if (gc < 18) {
+                    gc = 0;
+                    isColorDecrement = false;
+                    rgbChangeMode++;
+                }
+            } else {
+                gc++;
+                if (gc > 253) {
+                    isColorDecrement = true;
+                }
             }
         }
         else if (rgbChangeMode == 3) {
-            bc++;
-            if (bc > 253) {
+            if (isColorDecrement) {
                 bc--;
-                blueChange = true;
-            }
-            if (blueChange == true) {
-                bc = bc - 2;
-            }
-            if (bc < 18 && blueChange == true) {
-                bc = 0;
-                blueChange = false;
-                rgbChangeMode++;
+                if (bc < 18) {
+                    bc = 0;
+                    isColorDecrement = false;
+                    rgbChangeMode++;
+                }
+            } else {
+                bc++;
+                if (bc > 253) {
+                    isColorDecrement = true;
+                }
             }
         }
         else if (rgbChangeMode == 4) {
-            rc++;
-            gc++;
-            if (rc > 253) {
+            if (isColorDecrement) {
                 rc--;
                 gc--;
-                redChange = true;
-            }
-            if (redChange == true) {
-                rc = rc - 2;
-                gc = gc - 2;
-            }
-            if (rc < 18 && redChange == true) {
-                rc = 0;
-                gc = 0;
-                redChange = false;
-                rgbChangeMode++;
+                if (rc < 18) {
+                    rc = 0;
+                    gc = 0;
+                    isColorDecrement = false;
+                    rgbChangeMode++;
+                }
+            } else {
+                rc++;
+                gc++;
+                if (rc > 253) {
+                    isColorDecrement = true;
+                }
             }
         }
         else if (rgbChangeMode == 5) {
-            rc++;
-            bc++;
-            if (rc > 253) {
+            if (isColorDecrement) {
                 rc--;
                 bc--;
-                redChange = true;
-            }
-            if (redChange == true) {
-                rc = rc - 2;
-                bc = bc - 2;
-            }
-            if (rc < 18 && redChange == true) {
-                rc = 0;
-                bc = 0;
-                redChange = false;
-                rgbChangeMode++;
+                if (rc < 18) {
+                    rc = 0;
+                    bc = 0;
+                    isColorDecrement = false;
+                    rgbChangeMode++;
+                }
+            } else {
+                rc++;
+                bc++;
+                if (rc > 253) {
+                    isColorDecrement = true;
+                }
             }
         }
         else if (rgbChangeMode == 6) {
-            gc++;
-            bc++;
-            if (gc > 253) {
+            if (isColorDecrement) {
                 gc--;
                 bc--;
-                greenChange = true;
-            }
-            if (greenChange == true) {
-                gc = gc - 2;
-                bc = bc - 2;
-            }
-            if (gc < 18 && greenChange == true) {
-                gc = 0;
-                bc = 0;
-                greenChange = false;
-                rgbChangeMode++;
+                if (gc < 18) {
+                    gc = 0;
+                    bc = 0;
+                    isColorDecrement = false;
+                    rgbChangeMode++;
+                }
+            } else {
+                gc++;
+                bc++;
+                if (gc > 253) {
+                    isColorDecrement = true;
+                }
             }
         }
         else if (rgbChangeMode == 7) {
-            rc++;
-            gc++;
-            bc++;
-            if (gc > 253) {
+            if (isColorDecrement) {
                 rc--;
                 gc--;
                 bc--;
-                greenChange = true;
-            }
-            if (greenChange == true) {
-                rc = rc - 2;
-                gc = gc - 2;
-                bc = bc - 2;
-            }
-            if (gc < 18 && greenChange == true) {
-                rc = 0;
-                gc = 0;
-                bc = 0;
-                greenChange = false;
-                rgbChangeMode = 1;
+                if (gc < 18) {
+                    rc = 0;
+                    gc = 0;
+                    bc = 0;
+                    isColorDecrement = false;
+                    rgbChangeMode = 1;
+                }
+            } else {
+                rc++;
+                gc++;
+                bc++;
+                if (gc > 253) {
+                    isColorDecrement = true;
+                }
             }
         }
     }
