@@ -123,35 +123,35 @@ public class VisualMEScreen extends Screen {
                     y = y + (float) (Math.cos(temp2) * len);
                 }
                 
-                if (colorMode == 1) setColor(g, rc, gc, bc);
+                if (colorMode == 1) g.setColor(rc, gc, bc);
                 else {
                     final int deltaColor = 255 - 255 * i / flexibility;
-                    if (colorMode == 2)       setColor(g, deltaColor, 0, 255);
-                    else if (colorMode == 3)  setColor(g, deltaColor, 255, 0);
-                    else if (colorMode == 4)  setColor(g, deltaColor, 255, 255);
+                    if (colorMode == 2)       g.setColor(deltaColor, 0, 255);
+                    else if (colorMode == 3)  g.setColor(deltaColor, 255, 0);
+                    else if (colorMode == 4)  g.setColor(deltaColor, 255, 255);
                     
-                    else if (colorMode == 5)  setColor(g, 0, deltaColor, 255);
-                    else if (colorMode == 6)  setColor(g, 255, deltaColor, 0);
-                    else if (colorMode == 7)  setColor(g, 255, deltaColor, 255);
+                    else if (colorMode == 5)  g.setColor(0, deltaColor, 255);
+                    else if (colorMode == 6)  g.setColor(255, deltaColor, 0);
+                    else if (colorMode == 7)  g.setColor(255, deltaColor, 255);
                     
-                    else if (colorMode == 8)  setColor(g, 0, 255, deltaColor);
-                    else if (colorMode == 9)  setColor(g, 255, 0, deltaColor);
-                    else if (colorMode == 10) setColor(g, 255, 255, deltaColor);
+                    else if (colorMode == 8)  g.setColor(0, 255, deltaColor);
+                    else if (colorMode == 9)  g.setColor(255, 0, deltaColor);
+                    else if (colorMode == 10) g.setColor(255, 255, deltaColor);
                     
-                    else if (colorMode == 11) setColor(g, deltaColor, deltaColor, 0);
-                    else if (colorMode == 12) setColor(g, deltaColor, deltaColor, 255);
+                    else if (colorMode == 11) g.setColor(deltaColor, deltaColor, 0);
+                    else if (colorMode == 12) g.setColor(deltaColor, deltaColor, 255);
                     
-                    else if (colorMode == 13) setColor(g, deltaColor, 0, deltaColor);
-                    else if (colorMode == 14) setColor(g, deltaColor, 255, deltaColor);
+                    else if (colorMode == 13) g.setColor(deltaColor, 0, deltaColor);
+                    else if (colorMode == 14) g.setColor(deltaColor, 255, deltaColor);
                     
-                    else if (colorMode == 15) setColor(g, 0, deltaColor, deltaColor);                    
-                    else if (colorMode == 16) setColor(g, 255, deltaColor, deltaColor);
+                    else if (colorMode == 15) g.setColor(0, deltaColor, deltaColor);                    
+                    else if (colorMode == 16) g.setColor(255, deltaColor, deltaColor);
                     
-                    else if (colorMode == 17) setColor(g, rc, deltaColor, 255);
-                    else if (colorMode == 18) setColor(g, 255, gc, deltaColor);
-                    else if (colorMode == 19) setColor(g, 255, deltaColor, bc);
+                    else if (colorMode == 17) g.setColor(rc, deltaColor, 255);
+                    else if (colorMode == 18) g.setColor(255, gc, deltaColor);
+                    else if (colorMode == 19) g.setColor(255, deltaColor, bc);
                     
-                    else if (colorMode == 20) setColor(g, bc, rc, deltaColor);
+                    else if (colorMode == 20) g.setColor(bc, rc, deltaColor);
                 }
                 
                 g.drawLine((int)x, (int)y, (int)tx, (int)ty);
@@ -160,10 +160,6 @@ public class VisualMEScreen extends Screen {
                 y = ty;
             }
         }
-    }
-    
-    private void setColor(JecpGraphics g, int red, int green, int blue) {
-        g.setColor(0xFF000000 | (red << 16) | (green << 8) | blue);
     }
 
     public void onUpdate() {
