@@ -36,29 +36,40 @@ public class JecpGraphics implements com.annimon.jecp.JecpGraphics {
     public void setCanvas(Canvas mCanvas) {
         this.mCanvas = mCanvas;
     }
-    
+
+    @Override
     public void drawLine(int x1, int y1, int x2, int y2) {
         mCanvas.drawLine(x1, y1, x2, y2, mPaint);
     }
 
+    @Override
     public void drawRect(int x, int y, int width, int height) {
         mPaint.setStyle(Paint.Style.STROKE);
         mCanvas.drawRect(x, y, x + width, y + height, mPaint);
     }
     
+    @Override
     public void drawString(String text, int x, int y) {
         mCanvas.drawText(text, x, y, mPaint);
     }
 
+    @Override
     public void fillRect(int x, int y, int width, int height) {
         mPaint.setStyle(Paint.Style.FILL);
         mCanvas.drawRect(x, y, x + width, y + height, mPaint);
     }
+    
+    @Override
+    public int getTextWidth(String text) {
+        return (int) mPaint.measureText(text);
+    }
 
+    @Override
     public void setColor(int color) {
         mPaint.setColor(color);
     }
     
+    @Override
     public void setColor(int red, int green, int blue) {
         mPaint.setARGB(255, red, green, blue);
     }

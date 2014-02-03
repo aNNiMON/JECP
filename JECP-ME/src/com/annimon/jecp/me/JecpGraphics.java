@@ -46,6 +46,10 @@ public class JecpGraphics implements com.annimon.jecp.JecpGraphics {
     public void fillRect(int x, int y, int width, int height) {
         g.fillRect(x, y, width, height);
     }
+    
+    public int getTextWidth(String text) {
+        return g.getFont().stringWidth(text);
+    }
 
     public void setColor(int color) {
         g.setColor(color);
