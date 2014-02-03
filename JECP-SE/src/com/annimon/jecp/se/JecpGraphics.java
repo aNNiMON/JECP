@@ -56,4 +56,9 @@ public class JecpGraphics implements com.annimon.jecp.JecpGraphics {
     public void setColor(int color) {
         g.setColor(new Color(color));
     }
+    
+    @Override
+    public void setColor(int red, int green, int blue) {
+        g.setColor(new Color(red, green, blue));
+    }
 }

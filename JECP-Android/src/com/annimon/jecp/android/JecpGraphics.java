@@ -59,4 +59,8 @@ public class JecpGraphics implements com.annimon.jecp.JecpGraphics {
         mPaint.setColor(color);
     }
     
+    public void setColor(int red, int green, int blue) {
+        mPaint.setARGB(255, red, green, blue);
+    }
+    
 }

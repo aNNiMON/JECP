@@ -32,4 +32,6 @@ public interface JecpGraphics {
     public void fillRect(int x, int y, int width, int height);
     
     public void setColor(int color);
+    
+    public void setColor(int red, int green, int blue);
 }
