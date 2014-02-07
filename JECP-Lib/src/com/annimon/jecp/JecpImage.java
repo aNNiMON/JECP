@@ -24,28 +24,19 @@ import java.io.InputStream;
  *
  * @author aNNiMON
  */
-public class JecpImage implements ImageInterface {
+public abstract class JecpImage {
     
-    public static ImageInterface imageInterface;
+    public static ImageInitializer imageInitializer;
     
     public static JecpImage createImage(String res) throws IOException {
-        return imageInterface.init(res);
+        return imageInitializer.init(res);
     }
     
     public static JecpImage createImage(InputStream is) throws IOException {
-        return imageInterface.init(is);
+        return imageInitializer.init(is);
     }
     
-    public JecpImage init(String res) throws IOException {
-        return imageInterface.init(res);
-    }
+    public abstract int getWidth();
 
-    public JecpImage init(InputStream is) throws IOException {
-        return imageInterface.init(is);
-    }
-    
-    public int getWidth() { return imageInterface.getWidth(); };
-    
-    public int getHeight() { return imageInterface.getHeight(); };
-
+    public abstract int getHeight();
 }

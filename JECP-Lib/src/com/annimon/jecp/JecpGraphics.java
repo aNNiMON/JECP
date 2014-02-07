@@ -23,7 +23,7 @@ package com.annimon.jecp;
  */
 public abstract class JecpGraphics {
     
-    public abstract void drawImage(ImageInterface image, int x, int y);
+    public abstract void drawImage(JecpImage image, int x, int y);
     
     public abstract void drawLine(int x1, int y1, int x2, int y2);
     
