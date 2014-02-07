@@ -50,7 +50,7 @@ public class JecpGraphics extends com.annimon.jecp.JecpGraphics {
     
     @Override
     public void drawString(String text, int x, int y) {
-        mCanvas.drawText(text, x, y, mPaint);
+        mCanvas.drawText(text, x, y + getTextHeight(), mPaint);
     }
 
     @Override
