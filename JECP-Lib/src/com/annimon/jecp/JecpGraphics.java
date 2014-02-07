@@ -38,4 +38,21 @@ public abstract class JecpGraphics {
     public abstract void setColor(int color);
     
     public abstract void setColor(int red, int green, int blue);
+    
+    
+    public final void drawPolygon(int centerX, int centerY, int numPoints, int radius, double startAngle) {
+        final double deltaAngle = Math.toRadians(360f / numPoints);
+        
+        int startX = (int) (centerX + Math.sin(startAngle) * radius);
+        int startY = (int) (centerY + Math.cos(startAngle) * radius);
+        for (int i = 0; i <= numPoints; i++) {
+            final double angle = startAngle + i * deltaAngle;
+            final int endX = (int) (centerX + Math.sin(angle) * radius);
+            final int endY = (int) (centerY + Math.cos(angle) * radius);
+            drawLine(startX, startY, endX, endY);
+            
+            startX = endX;
+            startY = endY;
+        }
+    }
 }
