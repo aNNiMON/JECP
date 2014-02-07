@@ -24,7 +24,7 @@ import android.graphics.Paint;
  *
  * @author aNNiMON
  */
-public class JecpGraphics implements com.annimon.jecp.JecpGraphics {
+public class JecpGraphics extends com.annimon.jecp.JecpGraphics {
     
     private final Paint mPaint;
     private Canvas mCanvas;

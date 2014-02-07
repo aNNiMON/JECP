@@ -21,21 +21,21 @@ package com.annimon.jecp;
  *
  * @author aNNiMON
  */
-public interface JecpGraphics {
+public abstract class JecpGraphics {
     
-    public void drawLine(int x1, int y1, int x2, int y2);
+    public abstract void drawLine(int x1, int y1, int x2, int y2);
     
-    public void drawRect(int x, int y, int width, int height);
+    public abstract void drawRect(int x, int y, int width, int height);
     
-    public void drawString(String text, int x, int y);
+    public abstract void drawString(String text, int x, int y);
     
-    public void fillRect(int x, int y, int width, int height);
+    public abstract void fillRect(int x, int y, int width, int height);
     
-    public int getTextWidth(String text);
+    public abstract int getTextWidth(String text);
     
-    public int getTextHeight();
+    public abstract int getTextHeight();
     
-    public void setColor(int color);
+    public abstract void setColor(int color);
     
-    public void setColor(int red, int green, int blue);
+    public abstract void setColor(int red, int green, int blue);
 }
