@@ -18,12 +18,15 @@
 package com.annimon.jecp.android;
 
 import android.app.Activity;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 import com.annimon.jecp.ApplicationListener;
 
 public abstract class JecpApplication extends Activity {
+    
+    static AssetManager sAssetManager;
     
     private ApplicationListener listener;
     
@@ -33,6 +36,7 @@ public abstract class JecpApplication extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                              WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        sAssetManager = getAssets();
         onCreate();
     }
     
