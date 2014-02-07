@@ -1,5 +1,6 @@
 /*
- * Copyright 2014 aNNiMON.
+ * Copyright 2014 Victor Melnik <annimon119@gmail.com>, and
+ * individual contributors as indicated by the @authors tag.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,6 +19,7 @@ package com.annimon.jecp.android;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import com.annimon.jecp.JecpImage;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -25,17 +27,15 @@ import java.io.InputStream;
  *
  * @author aNNiMON
  */
-public class JecpImage extends com.annimon.jecp.JecpImage {
+public class ImageAndroid extends JecpImage {
     
     Bitmap mImage;
-
-    public JecpImage(String res) throws IOException {
-        super(res);
+    
+    public ImageAndroid(String res) throws IOException {
         init(JecpApplication.sAssetManager.open(res));
     }
-    
-    public JecpImage(InputStream is) throws IOException {
-        super(is);
+
+    public ImageAndroid(InputStream is) throws IOException {
         init(is);
     }
     
@@ -53,4 +53,5 @@ public class JecpImage extends com.annimon.jecp.JecpImage {
     public int getHeight() {
         return mImage.getHeight();
     }
+    
 }
