@@ -34,7 +34,7 @@ public abstract class JecpApplication extends MIDlet {
     
     public JecpApplication(ApplicationListener listener) {
         this.listener = listener;
-        JecpImage.imageInterface = new ImageME();
+        JecpImage.imageInitializer = new JecpImageInitializer();
     }
     
     protected final void startApp() {
