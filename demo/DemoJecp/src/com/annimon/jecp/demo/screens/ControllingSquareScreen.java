@@ -2,8 +2,10 @@
 package com.annimon.jecp.demo.screens;
 
 import com.annimon.jecp.JecpGraphics;
+import com.annimon.jecp.JecpImage;
 import com.annimon.jecp.JecpRandom;
 import com.annimon.jecp.Keys;
+import java.io.IOException;
 
 /**
  * Controlling square by keyboard and touch/mouse.
@@ -11,52 +13,65 @@ import com.annimon.jecp.Keys;
  */
 public class ControllingSquareScreen extends Screen {
     
-    private int squareX, squareY, squareSize, squareColor;
+    private int posX, posY, objWidth, objHeight, squareColor;
     private boolean upPressed, downPressed, leftPressed, rightPressed;
+    private JecpImage image;
 
     public ControllingSquareScreen(int width, int height) {
         super(width, height);
-        final int min = Math.min(width, height);
-        squareSize = JecpRandom.rand(min / 20, min / 5);
-        squareX = width / 2 - squareSize / 2;
-        squareY = height / 2 - squareSize / 2;
-        squareColor = JecpRandom.randomColor(100, 250);
+        try {
+            image = JecpImage.createImage("/res/jecp_logo.png");
+            objWidth = image.getWidth();
+            objHeight = image.getHeight();
+        } catch (IOException ex) {
+            image = null;
+            final int min = Math.min(width, height);
+            objWidth = JecpRandom.rand(min / 20, min / 5);
+            objHeight = objWidth;
+            squareColor = JecpRandom.randomColor(100, 250);
+        }
+        posX = width / 2 - objWidth / 2;
+        posY = height / 2 - objHeight / 2;
     }
     
     public void onPaint(JecpGraphics g) {
         super.onPaint(g);
-        g.setColor(squareColor);
-        g.fillRect(squareX, squareY, squareSize, squareSize);
+        if (image != null) {
+            g.drawImage(image, posX, posY);
+        } else {
+            g.setColor(squareColor);
+            g.fillRect(posX, posY, objWidth, objWidth);
+        }
     }
 
     public void onUpdate() {
         if (upPressed) {
-            squareY--;
-            if (squareY < 0) squareY = 0;
+            posY--;
+            if (posY < 0) posY = 0;
         } else if (downPressed) {
-            squareY++;
-            if (squareY > (height - squareSize)) squareY = height - squareSize;
+            posY++;
+            if (posY > (height - objHeight)) posY = height - objHeight;
         }
         if (leftPressed) {
-            squareX--;
-            if (squareX < 0) squareX = 0;
+            posX--;
+            if (posX < 0) posX = 0;
         } else if (rightPressed) {
-            squareX++;
-            if (squareX > (width - squareSize)) squareX = width - squareSize;
+            posX++;
+            if (posX > (width - objWidth)) posX = width - objWidth;
         }
         sleep(2);
     }
     
     public void onPointerPressed(int x, int y) {
         super.onPointerPressed(x, y);
-        squareX = x;
-        squareY = y;
+        posX = x;
+        posY = y;
     }
 
     public void onPointerDragged(int x, int y) {
         super.onPointerDragged(x, y);
-        squareX = x;
-        squareY = y;
+        posX = x;
+        posY = y;
     }
 
     public void onKeyPressed(int key) {
