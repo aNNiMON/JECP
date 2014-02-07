@@ -33,6 +33,11 @@ public class JecpGraphics extends com.annimon.jecp.JecpGraphics {
     }
     
     @Override
+    public void drawImage(com.annimon.jecp.JecpImage image, int x, int y) {
+        g.drawImage(((JecpImage)image).image, x, y, null);
+    }
+    
+    @Override
     public void drawLine(int x1, int y1, int x2, int y2) {
         g.drawLine(x1, y1, x2, y2);
     }

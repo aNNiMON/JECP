@@ -33,8 +33,13 @@ public class JecpGraphics extends com.annimon.jecp.JecpGraphics {
         mPaint = paint;
     }
     
-    public void setCanvas(Canvas mCanvas) {
+    void setCanvas(Canvas mCanvas) {
         this.mCanvas = mCanvas;
+    }
+    
+    @Override
+    public void drawImage(com.annimon.jecp.JecpImage image, int x, int y) {
+        mCanvas.drawBitmap(((JecpImage)image).mImage, x, y, mPaint);
     }
 
     @Override

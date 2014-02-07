@@ -33,6 +33,10 @@ public class JecpGraphics extends com.annimon.jecp.JecpGraphics {
         g.setFont(Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, Font.SIZE_SMALL));
     }
     
+    public void drawImage(com.annimon.jecp.JecpImage image, int x, int y) {
+        g.drawImage(((JecpImage)image).image, x, y, Graphics.TOP | Graphics.LEFT);
+    }
+    
     public void drawLine(int x1, int y1, int x2, int y2) {
         g.drawLine(x1, y1, x2, y2);
     }
