@@ -16,6 +16,7 @@
 
 package com.annimon.jecp.se;
 
+import com.annimon.jecp.JecpImage;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,23 +26,21 @@ import javax.imageio.ImageIO;
  *
  * @author aNNiMON
  */
-public class JecpImage extends com.annimon.jecp.JecpImage {
+class ImageSE extends JecpImage {
 
     BufferedImage image;
     
-    public JecpImage(String res) throws IOException {
-        super(res);
-        init(getClass().getResourceAsStream(res));
+    @Override
+    public JecpImage init(String res) throws IOException {
+        System.out.println(res);
+        return init(getClass().getResourceAsStream(res));
     }
-    
-    public JecpImage(InputStream is) throws IOException {
-        super(is);
-        init(is);
-    }
-    
-    private void init(InputStream is) throws IOException {
+
+    @Override
+    public JecpImage init(InputStream is) throws IOException {
         image = ImageIO.read(is);
         if (is != null) is.close();
+        return this;
     }
     
     @Override
