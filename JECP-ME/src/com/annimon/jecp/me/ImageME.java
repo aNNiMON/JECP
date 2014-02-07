@@ -16,6 +16,7 @@
 
 package com.annimon.jecp.me;
 
+import com.annimon.jecp.JecpImage;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.microedition.lcdui.Image;
@@ -24,23 +25,18 @@ import javax.microedition.lcdui.Image;
  *
  * @author aNNiMON
  */
-public class JecpImage extends com.annimon.jecp.JecpImage {
+class ImageME extends JecpImage {
     
     Image image;
     
-    public JecpImage(String res) throws IOException {
-        super(res);
-        init(getClass().getResourceAsStream(res));
+    public JecpImage init(String res) throws IOException {
+        return init(getClass().getResourceAsStream(res));
     }
     
-    public JecpImage(InputStream is) throws IOException {
-        super(is);
-        init(is);
-    }
-    
-    private void init(InputStream is) throws IOException {
+    public JecpImage init(InputStream is) throws IOException {
         image = Image.createImage(is);
         if (is != null) is.close();
+        return this;
     }
     
     public int getWidth() {
