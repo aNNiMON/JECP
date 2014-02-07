@@ -17,40 +17,25 @@
 
 package com.annimon.jecp.se;
 
+import com.annimon.jecp.ImageInitializer;
 import com.annimon.jecp.JecpImage;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
-import javax.imageio.ImageIO;
 
 /**
  *
  * @author aNNiMON
  */
-class ImageSE extends JecpImage {
+class JecpImageInitializer implements ImageInitializer {
 
-    BufferedImage image;
-    
-    public ImageSE(String res) throws IOException {
-        init(getClass().getResourceAsStream(res));
-    }
-
-    public ImageSE(InputStream is) throws IOException {
-        init(is);
-    }
-    
-    private void init(InputStream is) throws IOException {
-        image = ImageIO.read(is);
-        if (is != null) is.close();
-    }
-    
     @Override
-    public int getWidth() {
-        return image.getWidth();
+    public JecpImage init(String res) throws IOException {
+        return new ImageSE(res);
     }
 
     @Override
-    public int getHeight() {
-        return image.getHeight();
+    public JecpImage init(InputStream is) throws IOException {
+        return new ImageSE(is);
     }
+    
 }

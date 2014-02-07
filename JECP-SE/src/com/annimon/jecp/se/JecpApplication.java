@@ -39,7 +39,7 @@ public abstract class JecpApplication extends JFrame implements WindowListener {
         setLocationByPlatform(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
-        JecpImage.imageInterface = new ImageSE();
+        JecpImage.imageInitializer = new JecpImageInitializer();
         listener.onStartApp(width, height);
         panel = new JecpPaintPanel(listener, width, height);
         add(panel);

@@ -17,7 +17,7 @@
 
 package com.annimon.jecp.se;
 
-import com.annimon.jecp.ImageInterface;
+import com.annimon.jecp.JecpImage;
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -34,7 +34,7 @@ public class JecpGraphics extends com.annimon.jecp.JecpGraphics {
     }
     
     @Override
-    public void drawImage(ImageInterface image, int x, int y) {
+    public void drawImage(JecpImage image, int x, int y) {
         g.drawImage(((ImageSE)image).image, x, y, null);
     }
     
