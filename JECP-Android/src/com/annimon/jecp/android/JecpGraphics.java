@@ -25,7 +25,7 @@ import com.annimon.jecp.Image;
  *
  * @author aNNiMON
  */
-public class JecpGraphics extends com.annimon.jecp.JecpGraphics {
+public class JecpGraphics extends com.annimon.jecp.Graphics {
     
     private final Paint mPaint;
     private Canvas mCanvas;

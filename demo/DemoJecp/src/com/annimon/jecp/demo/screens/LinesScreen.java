@@ -2,7 +2,7 @@
 package com.annimon.jecp.demo.screens;
 
 import com.annimon.jecp.Fps;
-import com.annimon.jecp.JecpGraphics;
+import com.annimon.jecp.Graphics;
 import com.annimon.jecp.JecpRandom;
 import com.annimon.jecp.demo.DynamicLine;
 
@@ -33,7 +33,7 @@ public class LinesScreen extends Screen {
         }
     }
     
-    public void onPaint(JecpGraphics g) {
+    public void onPaint(Graphics g) {
         Fps.startMeasuringDelay();
         super.onPaint(g);
         for (int i = 0; i < LINES_COUNT; i++) {

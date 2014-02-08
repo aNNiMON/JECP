@@ -3,7 +3,7 @@ package com.annimon.jecp.demo.screens;
 
 import com.annimon.jecp.InputListener;
 import com.annimon.jecp.Jecp;
-import com.annimon.jecp.JecpGraphics;
+import com.annimon.jecp.Graphics;
 import com.annimon.jecp.Keys;
 
 /**
@@ -33,7 +33,7 @@ public abstract class Screen implements InputListener {
         this.nextScreenListener = listener;
     }
     
-    public void onPaint(JecpGraphics g) {
+    public void onPaint(Graphics g) {
         // Clear screen
         g.setColor(0xFF000000);
         g.fillRect(0, 0, width, height);

@@ -25,7 +25,7 @@ import javax.microedition.lcdui.Graphics;
  *
  * @author aNNiMON
  */
-public class JecpGraphics extends com.annimon.jecp.JecpGraphics {
+public class JecpGraphics extends com.annimon.jecp.Graphics {
     
     private final Graphics g;
     

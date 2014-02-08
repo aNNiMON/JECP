@@ -1,7 +1,7 @@
 
 package com.annimon.jecp.demo.screens;
 
-import com.annimon.jecp.JecpGraphics;
+import com.annimon.jecp.Graphics;
 import com.annimon.jecp.JecpRandom;
 import com.annimon.jecp.Keys;
 
@@ -27,7 +27,7 @@ public class CellsScreen extends Screen {
         Keys.numericdAsDpad = true;
     }
     
-    public void onPaint(JecpGraphics g) {
+    public void onPaint(Graphics g) {
         super.onPaint(g);
         final int areaSize = Math.min(width, height) / cellsCount;
         final int colorStep = 255 / (cellsCount + 1);
@@ -71,7 +71,7 @@ public class CellsScreen extends Screen {
         
         private int cellX, cellY, cellColor;
         
-        private void draw(JecpGraphics g, int areaSize) {
+        private void draw(Graphics g, int areaSize) {
             g.setColor(cellColor);
             g.fillRect(cellX * areaSize + 1, cellY * areaSize + 1, areaSize - 1, areaSize - 1);
         }

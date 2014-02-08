@@ -1,7 +1,7 @@
 
 package com.annimon.jecp.demo.screens;
 
-import com.annimon.jecp.JecpGraphics;
+import com.annimon.jecp.Graphics;
 import com.annimon.jecp.Image;
 import com.annimon.jecp.JecpRandom;
 import com.annimon.jecp.Keys;
@@ -34,7 +34,7 @@ public class ControllingSquareScreen extends Screen {
         posY = height / 2 - objHeight / 2;
     }
     
-    public void onPaint(JecpGraphics g) {
+    public void onPaint(Graphics g) {
         super.onPaint(g);
         if (image != null) {
             g.drawImage(image, posX, posY);

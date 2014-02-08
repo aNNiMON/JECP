@@ -1,7 +1,7 @@
 
 package com.annimon.jecp.demo.screens;
 
-import com.annimon.jecp.JecpGraphics;
+import com.annimon.jecp.Graphics;
 import com.annimon.jecp.JecpRandom;
 
 /**
@@ -27,7 +27,7 @@ public class PolygonScreen extends Screen {
         }
     }
     
-    public void onPaint(JecpGraphics g) {
+    public void onPaint(Graphics g) {
         super.onPaint(g);
         g.setColor(color);
         for (int i = 0; i < numPoints.length; i++) {

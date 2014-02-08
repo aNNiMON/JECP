@@ -1,6 +1,6 @@
 package com.annimon.jecp.demo;
 
-import com.annimon.jecp.JecpGraphics;
+import com.annimon.jecp.Graphics;
 import com.annimon.jecp.JecpRandom;
 
 /**
@@ -25,7 +25,7 @@ public class DynamicLine {
         dirY2 = JecpRandom.rand(-5f, 5f);
     }
     
-    public void onPaint(JecpGraphics g) {
+    public void onPaint(Graphics g) {
         g.setColor(color);
         g.drawLine(x1, y1, x2, y2);
     }

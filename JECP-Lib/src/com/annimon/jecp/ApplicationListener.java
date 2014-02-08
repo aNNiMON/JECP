@@ -29,7 +29,7 @@ public interface ApplicationListener {
     
     public void onDestroyApp();
     
-    public void onPaint(JecpGraphics g);
+    public void onPaint(Graphics g);
     
     public void onUpdate();
 }

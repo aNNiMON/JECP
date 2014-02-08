@@ -1,7 +1,7 @@
 
 package com.annimon.jecp.demo.screens;
 
-import com.annimon.jecp.JecpGraphics;
+import com.annimon.jecp.Graphics;
 import com.annimon.jecp.JecpRandom;
 import com.annimon.jecp.Keys;
 
@@ -70,7 +70,7 @@ public class VisualMEScreen extends Screen {
         timestamp = System.currentTimeMillis();
     }
     
-    public void onPaint(JecpGraphics g) {
+    public void onPaint(Graphics g) {
         super.onPaint(g);
         if (JecpRandom.rand(20) == 5) startAngleInt = JecpRandom.rand(360);
         

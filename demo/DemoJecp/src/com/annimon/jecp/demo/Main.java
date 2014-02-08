@@ -1,7 +1,7 @@
 package com.annimon.jecp.demo;
 
 import com.annimon.jecp.ApplicationListener;
-import com.annimon.jecp.JecpGraphics;
+import com.annimon.jecp.Graphics;
 import com.annimon.jecp.demo.screens.*;
 
 /**
@@ -28,7 +28,7 @@ public class Main implements ApplicationListener, Screen.OnNextScreenListener {
 
     public void onDestroyApp() { }
 
-    public void onPaint(JecpGraphics g) {
+    public void onPaint(Graphics g) {
         currentScreen.onPaint(g);
     }
 

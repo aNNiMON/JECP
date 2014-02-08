@@ -21,7 +21,7 @@ package com.annimon.jecp;
  *
  * @author aNNiMON
  */
-public abstract class JecpGraphics {
+public abstract class Graphics {
     
     public abstract void drawImage(Image image, int x, int y);
     
