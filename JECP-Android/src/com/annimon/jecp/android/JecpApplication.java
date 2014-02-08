@@ -23,6 +23,7 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 import com.annimon.jecp.ApplicationListener;
+import com.annimon.jecp.JecpImage;
 
 public abstract class JecpApplication extends Activity {
     
@@ -37,6 +38,7 @@ public abstract class JecpApplication extends Activity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                              WindowManager.LayoutParams.FLAG_FULLSCREEN);
         sAssetManager = getAssets();
+        JecpImage.imageInitializer = new JecpImageInitializer();
         onCreate();
     }
     
