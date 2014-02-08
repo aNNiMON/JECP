@@ -26,13 +26,13 @@ import javax.microedition.midlet.MIDlet;
  *
  * @author aNNiMON
  */
-public abstract class JecpApplication extends MIDlet {
+public abstract class Application extends MIDlet {
     
     private final ApplicationListener listener;
     private static MIDlet midlet;
     private static Display display;
     
-    public JecpApplication(ApplicationListener listener) {
+    public Application(ApplicationListener listener) {
         this.listener = listener;
         Jecp.helper = new JecpHelper(this);
     }
