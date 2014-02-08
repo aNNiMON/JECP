@@ -53,6 +53,10 @@ public abstract class Screen implements InputListener {
         if (nextScreenListener != null) {
             if (key == Keys.KEY_POUND || key == Keys.VK_ENTER) {
                 nextScreenListener.onNextScreen();
+            } else if (key == Keys.KEY_BACK ||
+                    key == Keys.ANDRO_BACK ||
+                    key == Keys.VK_ESCAPE) {
+                Jecp.exitApp();
             }
         }
     }
