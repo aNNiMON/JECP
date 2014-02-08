@@ -26,4 +26,8 @@ public class Jecp {
     public static InputListener inputListener;
     
     public static HelperInterface helper;
+    
+    public static void exitApp() {
+        helper.exitApp();
+    }
 }
