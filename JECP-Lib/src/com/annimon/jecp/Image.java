@@ -24,13 +24,13 @@ import java.io.InputStream;
  *
  * @author aNNiMON
  */
-public abstract class JecpImage {
+public abstract class Image {
     
-    public static JecpImage createImage(String res) throws IOException {
+    public static Image createImage(String res) throws IOException {
         return Jecp.helper.init(res);
     }
     
-    public static JecpImage createImage(InputStream is) throws IOException {
+    public static Image createImage(InputStream is) throws IOException {
         return Jecp.helper.init(is);
     }
     

@@ -16,7 +16,6 @@
 
 package com.annimon.jecp.me;
 
-import com.annimon.jecp.JecpImage;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.microedition.lcdui.Image;
@@ -25,7 +24,7 @@ import javax.microedition.lcdui.Image;
  *
  * @author aNNiMON
  */
-class ImageME extends JecpImage {
+class ImageME extends com.annimon.jecp.Image {
     
     Image image;
     

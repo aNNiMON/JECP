@@ -2,7 +2,7 @@
 package com.annimon.jecp.demo.screens;
 
 import com.annimon.jecp.JecpGraphics;
-import com.annimon.jecp.JecpImage;
+import com.annimon.jecp.Image;
 import com.annimon.jecp.JecpRandom;
 import com.annimon.jecp.Keys;
 import java.io.IOException;
@@ -15,12 +15,12 @@ public class ControllingSquareScreen extends Screen {
     
     private int posX, posY, objWidth, objHeight, squareColor;
     private boolean upPressed, downPressed, leftPressed, rightPressed;
-    private JecpImage image;
+    private Image image;
 
     public ControllingSquareScreen(int width, int height) {
         super(width, height);
         try {
-            image = JecpImage.createImage("res/jecp_logo.png");
+            image = Image.createImage("res/jecp_logo.png");
             objWidth = image.getWidth();
             objHeight = image.getHeight();
         } catch (IOException ex) {

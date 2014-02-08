@@ -17,7 +17,7 @@
 
 package com.annimon.jecp.me;
 
-import com.annimon.jecp.JecpImage;
+import com.annimon.jecp.Image;
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
@@ -34,7 +34,7 @@ public class JecpGraphics extends com.annimon.jecp.JecpGraphics {
         g.setFont(Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, Font.SIZE_SMALL));
     }
     
-    public void drawImage(JecpImage image, int x, int y) {
+    public void drawImage(Image image, int x, int y) {
         g.drawImage(((ImageME)image).image, x, y, Graphics.TOP | Graphics.LEFT);
     }
     

@@ -19,7 +19,7 @@ package com.annimon.jecp.android;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import com.annimon.jecp.JecpImage;
+import com.annimon.jecp.Image;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -27,7 +27,7 @@ import java.io.InputStream;
  *
  * @author aNNiMON
  */
-public class ImageAndroid extends JecpImage {
+public class ImageAndroid extends Image {
     
     Bitmap mImage;
     

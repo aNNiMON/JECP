@@ -26,9 +26,9 @@ import java.io.InputStream;
  */
 public interface HelperInterface {
     
-    public JecpImage init(String res) throws IOException;
+    public Image init(String res) throws IOException;
 
-    public JecpImage init(InputStream is) throws IOException;
+    public Image init(InputStream is) throws IOException;
     
     public void exitApp();
 }

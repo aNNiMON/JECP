@@ -19,7 +19,7 @@ package com.annimon.jecp.android;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import com.annimon.jecp.JecpImage;
+import com.annimon.jecp.Image;
 
 /**
  *
@@ -39,7 +39,7 @@ public class JecpGraphics extends com.annimon.jecp.JecpGraphics {
     }
     
     @Override
-    public void drawImage(JecpImage image, int x, int y) {
+    public void drawImage(Image image, int x, int y) {
         mCanvas.drawBitmap(((ImageAndroid)image).mImage, x, y, mPaint);
     }
 

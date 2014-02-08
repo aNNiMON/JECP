@@ -18,7 +18,7 @@
 package com.annimon.jecp.se;
 
 import com.annimon.jecp.HelperInterface;
-import com.annimon.jecp.JecpImage;
+import com.annimon.jecp.Image;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,12 +36,12 @@ class JecpHelper implements HelperInterface {
     }
 
     @Override
-    public JecpImage init(String res) throws IOException {
+    public Image init(String res) throws IOException {
         return new ImageSE(res);
     }
 
     @Override
-    public JecpImage init(InputStream is) throws IOException {
+    public Image init(InputStream is) throws IOException {
         return new ImageSE(is);
     }
 

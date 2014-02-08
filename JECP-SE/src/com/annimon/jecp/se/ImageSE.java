@@ -17,7 +17,6 @@
 
 package com.annimon.jecp.se;
 
-import com.annimon.jecp.JecpImage;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
@@ -27,7 +26,7 @@ import javax.imageio.ImageIO;
  *
  * @author aNNiMON
  */
-class ImageSE extends JecpImage {
+class ImageSE extends com.annimon.jecp.Image {
 
     BufferedImage image;
     
