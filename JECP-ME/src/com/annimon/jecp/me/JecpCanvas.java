@@ -19,6 +19,7 @@ package com.annimon.jecp.me;
 
 import com.annimon.jecp.ApplicationListener;
 import com.annimon.jecp.Jecp;
+import com.annimon.jecp.Keys;
 import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
@@ -59,12 +60,14 @@ public class JecpCanvas extends Canvas {
     
     protected void keyPressed(int keyCode) {
         if (Jecp.inputListener != null) {
+            keyCode = convertDpadKeys(keyCode);
             Jecp.inputListener.onKeyPressed(keyCode);
         }
     }
-    
+
     protected void keyReleased(int keyCode) {
         if (Jecp.inputListener != null) {
+            keyCode = convertDpadKeys(keyCode);
             Jecp.inputListener.onKeyReleased(keyCode);
         }
     }
@@ -85,6 +88,16 @@ public class JecpCanvas extends Canvas {
         if (Jecp.inputListener != null) {
             Jecp.inputListener.onPointerReleased(x, y);
         }
+    }
+    
+    private int convertDpadKeys(int keyCode) {
+        int ga = getGameAction(keyCode);
+        if (ga == UP && keyCode != KEY_NUM2) keyCode = Keys.DPAD_UP;
+        else if (ga == DOWN && keyCode != KEY_NUM8) keyCode = Keys.DPAD_DOWN;
+        else if (ga == LEFT && keyCode != KEY_NUM4) keyCode = Keys.DPAD_LEFT;
+        else if (ga == RIGHT && keyCode != KEY_NUM6) keyCode = Keys.DPAD_RIGHT;
+        else if (ga == FIRE && keyCode != KEY_NUM5) keyCode = Keys.DPAD_FIRE;
+        return keyCode;
     }
     
     private class DrawingThread extends Thread {
