@@ -17,7 +17,7 @@
 
 package com.annimon.jecp.android;
 
-import com.annimon.jecp.ImageInitializer;
+import com.annimon.jecp.HelperInterface;
 import com.annimon.jecp.JecpImage;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,7 +26,13 @@ import java.io.InputStream;
  *
  * @author aNNiMON
  */
-class JecpImageInitializer implements ImageInitializer {
+class JecpHelper implements HelperInterface {
+    
+    private final JecpApplication app;
+
+    JecpHelper(JecpApplication app) {
+        this.app = app;
+    }
 
     public JecpImage init(String res) throws IOException {
         return new ImageAndroid(res);
@@ -34,6 +40,10 @@ class JecpImageInitializer implements ImageInitializer {
 
     public JecpImage init(InputStream is) throws IOException {
         return new ImageAndroid(is);
+    }
+
+    public void exitApp() {
+        app.finish();
     }
     
 }
