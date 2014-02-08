@@ -29,9 +29,9 @@ import java.io.InputStream;
  */
 class JecpHelper implements HelperInterface {
     
-    private final JecpApplication app;
+    private final Application app;
 
-    JecpHelper(JecpApplication app) {
+    JecpHelper(Application app) {
         this.app = app;
     }
 

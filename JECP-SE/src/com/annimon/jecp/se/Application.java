@@ -28,14 +28,14 @@ import javax.swing.WindowConstants;
  *
  * @author aNNiMON
  */
-public abstract class JecpApplication extends JFrame implements WindowListener {
+public abstract class Application extends JFrame implements WindowListener {
     
     private final ApplicationListener listener;
     private final JecpPaintPanel panel;
 
-    public JecpApplication(ApplicationListener listener, int width, int height) {
+    public Application(ApplicationListener listener, int width, int height) {
         this.listener = listener;
-        addWindowListener(JecpApplication.this);
+        addWindowListener(Application.this);
         setLocationByPlatform(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
