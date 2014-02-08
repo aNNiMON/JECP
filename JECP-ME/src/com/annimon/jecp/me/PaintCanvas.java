@@ -29,14 +29,14 @@ import javax.microedition.lcdui.Image;
  * 
  * @author aNNiMON
  */
-public class JecpCanvas extends Canvas {
+public class PaintCanvas extends Canvas {
     
     private final ApplicationListener listener;
     private final DrawingThread thread;
     private final Image image;
     private final JecpGraphics graphics;
 
-    public JecpCanvas(ApplicationListener listener) {
+    public PaintCanvas(ApplicationListener listener) {
         this.listener = listener;
         
         setFullScreenMode(true);

@@ -40,7 +40,7 @@ public abstract class Application extends MIDlet {
     protected final void startApp() {
         midlet = this;
         display = Display.getDisplay(this);
-        display.setCurrent(new JecpCanvas(listener));
+        display.setCurrent(new PaintCanvas(listener));
     }
 
     protected final void pauseApp() {
