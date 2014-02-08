@@ -39,7 +39,7 @@ public class LinesScreen extends Screen {
             lines[i].onPaint(g);
         }
         g.setColor(0xFFFFFFFF);
-        g.drawString("Fps limiter is " + (fpsLimiter ? "on" : "off") + ". Press up to change state.", 0, 0);
+        g.drawString("Fps limiter is " + (fpsLimiter ? "on" : "off") + ". Press any key to change state.", 0, 0);
         g.drawString("Fps: " + Fps.getFps(), 0, g.getTextHeight());
         
         if (fpsLimiter) fpsLimiterDelay = Fps.getDelay();
@@ -54,8 +54,7 @@ public class LinesScreen extends Screen {
     }
 
     public void onKeyPressed(int key) {
+        fpsLimiter = !fpsLimiter;
         super.onKeyPressed(key);
-        final int dpad = Keys.convertToDpad(key);
-        if (dpad == Keys.DPAD_UP) fpsLimiter = !fpsLimiter;
     }
 }
