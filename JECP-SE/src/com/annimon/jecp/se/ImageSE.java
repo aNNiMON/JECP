@@ -32,7 +32,7 @@ class ImageSE extends JecpImage {
     BufferedImage image;
     
     public ImageSE(String res) throws IOException {
-        init(getClass().getResourceAsStream(res));
+        init(getClass().getResourceAsStream('/' + res));
     }
 
     public ImageSE(InputStream is) throws IOException {

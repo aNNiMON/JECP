@@ -30,7 +30,7 @@ class ImageME extends JecpImage {
     Image image;
     
     public ImageME(String res) throws IOException {
-        image = Image.createImage(res);
+        image = Image.createImage('/' + res);
     }
 
     public ImageME(InputStream is) throws IOException {
