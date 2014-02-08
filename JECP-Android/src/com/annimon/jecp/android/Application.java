@@ -44,7 +44,7 @@ public abstract class Application extends Activity {
     
     public void init(ApplicationListener listener) {
         this.listener = listener;
-        final JecpSurfaceView view = new JecpSurfaceView(this, listener);
+        final PaintSurfaceView view = new PaintSurfaceView(this, listener);
         view.setFocusable(true);
         setContentView(view);
     }

@@ -30,7 +30,7 @@ import com.annimon.jecp.Jecp;
  *
  * @author aNNiMON
  */
-public class JecpSurfaceView extends SurfaceView implements SurfaceHolder.Callback {
+public class PaintSurfaceView extends SurfaceView implements SurfaceHolder.Callback {
 
     private final ApplicationListener mListener;
     private final Application mActivity;
@@ -40,7 +40,7 @@ public class JecpSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     private final SurfaceHolder mSurfaceHolder;
     private final DrawingThread mThread;
 
-    public JecpSurfaceView(Application activity, ApplicationListener listener) {
+    public PaintSurfaceView(Application activity, ApplicationListener listener) {
         super(activity);
         mActivity = activity;
         mListener = listener;
@@ -49,7 +49,7 @@ public class JecpSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         setFocusableInTouchMode(true);
         
         mSurfaceHolder = getHolder();
-        mSurfaceHolder.addCallback(JecpSurfaceView.this);
+        mSurfaceHolder.addCallback(PaintSurfaceView.this);
         
         mThread = new DrawingThread();
         mThread.mKeepRunning = true;
