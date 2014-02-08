@@ -46,7 +46,9 @@ public class Keys {
             KEY_NUM8 = 56,
             KEY_NUM9 = 57,
             KEY_STAR = 42,
-            KEY_POUND = 35;
+            KEY_POUND = 35,
+            LEFT_SOFT = -6,
+            RIGHT_SOFT = -7;
     
     /** Java SE keys */
     public static final int
@@ -106,6 +108,6 @@ public class Keys {
             case VK_LEFT: return DPAD_LEFT;
             case VK_RIGHT: return DPAD_RIGHT;
         }
-        return 0;
+        return key;
     }
 }
