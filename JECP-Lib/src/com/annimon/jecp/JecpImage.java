@@ -26,14 +26,12 @@ import java.io.InputStream;
  */
 public abstract class JecpImage {
     
-    public static ImageInitializer imageInitializer;
-    
     public static JecpImage createImage(String res) throws IOException {
-        return imageInitializer.init(res);
+        return Jecp.helper.init(res);
     }
     
     public static JecpImage createImage(InputStream is) throws IOException {
-        return imageInitializer.init(is);
+        return Jecp.helper.init(is);
     }
     
     public abstract int getWidth();

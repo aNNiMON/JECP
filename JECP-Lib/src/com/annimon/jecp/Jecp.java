@@ -24,4 +24,6 @@ package com.annimon.jecp;
 public class Jecp {
     
     public static InputListener inputListener;
+    
+    public static HelperInterface helper;
 }
