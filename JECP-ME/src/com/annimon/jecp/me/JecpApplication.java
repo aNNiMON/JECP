@@ -18,7 +18,7 @@
 package com.annimon.jecp.me;
 
 import com.annimon.jecp.ApplicationListener;
-import com.annimon.jecp.JecpImage;
+import com.annimon.jecp.Jecp;
 import javax.microedition.lcdui.Display;
 import javax.microedition.midlet.MIDlet;
 
@@ -34,7 +34,7 @@ public abstract class JecpApplication extends MIDlet {
     
     public JecpApplication(ApplicationListener listener) {
         this.listener = listener;
-        JecpImage.imageInitializer = new JecpImageInitializer();
+        Jecp.helper = new JecpHelper(this);
     }
     
     protected final void startApp() {
