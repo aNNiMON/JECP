@@ -47,6 +47,7 @@ public class Keys {
             KEY_NUM9 = 57,
             KEY_STAR = 42,
             KEY_POUND = 35,
+            KEY_BACK = -11,
             LEFT_SOFT = -6,
             RIGHT_SOFT = -7;
     
@@ -58,6 +59,7 @@ public class Keys {
             VK_DOWN = 40,
             VK_ENTER = 10,
             VK_SPACE = 32,
+            VK_ESCAPE = 27,
             VK_W = 87,
             VK_S = 83,
             VK_A = 65,
@@ -89,8 +91,9 @@ public class Keys {
                 case VK_S: return DPAD_DOWN;
                 case VK_A: return DPAD_LEFT;
                 case VK_D: return DPAD_RIGHT;
-                case VK_ENTER: return DPAD_FIRE;
-                case VK_SPACE: return DPAD_FIRE;
+                case VK_ENTER:
+                case VK_SPACE:
+                    return DPAD_FIRE;
             }
         }
         if (numericdAsDpad) {
