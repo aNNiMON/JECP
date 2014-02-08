@@ -18,7 +18,7 @@
 package com.annimon.jecp.se;
 
 import com.annimon.jecp.ApplicationListener;
-import com.annimon.jecp.JecpImage;
+import com.annimon.jecp.Jecp;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.JFrame;
@@ -39,7 +39,7 @@ public abstract class JecpApplication extends JFrame implements WindowListener {
         setLocationByPlatform(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
-        JecpImage.imageInitializer = new JecpImageInitializer();
+        Jecp.helper = new JecpHelper(this);
         listener.onStartApp(width, height);
         panel = new JecpPaintPanel(listener, width, height);
         add(panel);
@@ -51,6 +51,8 @@ public abstract class JecpApplication extends JFrame implements WindowListener {
     @Override
     public void windowClosing(WindowEvent e) {
         listener.onDestroyApp();
+        setVisible(false);
+        dispose();
     }
     
     @Override
