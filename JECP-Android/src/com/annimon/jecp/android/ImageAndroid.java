@@ -32,7 +32,7 @@ public class ImageAndroid extends Image {
     Bitmap mImage;
     
     public ImageAndroid(String res) throws IOException {
-        init(JecpApplication.sAssetManager.open(res));
+        init(Application.sAssetManager.open(res));
     }
 
     public ImageAndroid(InputStream is) throws IOException {

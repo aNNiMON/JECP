@@ -25,7 +25,7 @@ import android.view.WindowManager;
 import com.annimon.jecp.ApplicationListener;
 import com.annimon.jecp.Jecp;
 
-public abstract class JecpApplication extends Activity {
+public abstract class Application extends Activity {
     
     static AssetManager sAssetManager;
     

@@ -33,14 +33,14 @@ import com.annimon.jecp.Jecp;
 public class JecpSurfaceView extends SurfaceView implements SurfaceHolder.Callback {
 
     private final ApplicationListener mListener;
-    private final JecpApplication mActivity;
+    private final Application mActivity;
     private final JecpGraphics mGraphics;
 
     private final Paint mPaint;
     private final SurfaceHolder mSurfaceHolder;
     private final DrawingThread mThread;
 
-    public JecpSurfaceView(JecpApplication activity, ApplicationListener listener) {
+    public JecpSurfaceView(Application activity, ApplicationListener listener) {
         super(activity);
         mActivity = activity;
         mListener = listener;
