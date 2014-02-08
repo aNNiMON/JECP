@@ -31,7 +31,7 @@ import javax.swing.WindowConstants;
 public abstract class Application extends JFrame implements WindowListener {
     
     private final ApplicationListener listener;
-    private final JecpPaintPanel panel;
+    private final PaintPanel panel;
 
     public Application(ApplicationListener listener, int width, int height) {
         this.listener = listener;
@@ -41,7 +41,7 @@ public abstract class Application extends JFrame implements WindowListener {
         
         Jecp.helper = new JecpHelper(this);
         listener.onStartApp(width, height);
-        panel = new JecpPaintPanel(listener, width, height);
+        panel = new PaintPanel(listener, width, height);
         add(panel);
         pack();
         

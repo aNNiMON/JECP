@@ -27,7 +27,7 @@ import javax.swing.JPanel;
  *
  * @author aNNiMON
  */
-public class JecpPaintPanel extends JPanel {
+class PaintPanel extends JPanel {
     
     private static final InputListenerSE INPUT_LISTENER = new InputListenerSE();
     
@@ -36,7 +36,7 @@ public class JecpPaintPanel extends JPanel {
     private final BufferedImage image;
     private final JecpGraphics graphics;
     
-    public JecpPaintPanel(ApplicationListener listener, int width, int height) {
+    public PaintPanel(ApplicationListener listener, int width, int height) {
         this.listener = listener;
         setFocusable(true);
         addMouseListener(INPUT_LISTENER);
