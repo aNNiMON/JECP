@@ -20,7 +20,7 @@ public class ControllingSquareScreen extends Screen {
     public ControllingSquareScreen(int width, int height) {
         super(width, height);
         try {
-            image = JecpImage.createImage("/res/jecp_logo.png");
+            image = JecpImage.createImage("res/jecp_logo.png");
             objWidth = image.getWidth();
             objHeight = image.getHeight();
         } catch (IOException ex) {
