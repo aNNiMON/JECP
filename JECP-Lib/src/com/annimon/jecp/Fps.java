@@ -51,4 +51,10 @@ public class Fps {
         long delay = System.currentTimeMillis() - startTimeForMeasureDelay;
         return (delay > MAX_DELAY ? 0 : MAX_DELAY - delay);
     }
+    
+    public static long getDelay(int maxfps) {
+        final int maxDelay = 1000 / maxfps;
+        long delay = System.currentTimeMillis() - startTimeForMeasureDelay;
+        return (delay > maxDelay ? 0 : maxDelay - delay);
+    }
 }
