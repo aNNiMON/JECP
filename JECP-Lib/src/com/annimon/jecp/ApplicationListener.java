@@ -14,22 +14,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.annimon.jecp;
 
 /**
+ * Main entry for GUI-applications.
  *
  * @author aNNiMON
  */
 public interface ApplicationListener {
-    
+
     public void onStartApp(int width, int height);
-    
+
     public void onPauseApp();
-    
+
     public void onDestroyApp();
-    
+
     public void onPaint(Graphics g);
-    
+
     public void onUpdate();
 }

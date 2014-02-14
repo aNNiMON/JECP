@@ -14,10 +14,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.annimon.jecp;
 
 /**
+ * FPS utility for developers. Provides utilities to measure fps of an application.
  *
  * @author aNNiMON
  */
@@ -30,31 +30,36 @@ public class Fps {
     private static long counter = 0, startTime = 0;
     private static long startTimeForMeasureDelay = 0;
 
+    /**
+     * Returns current FPS for an application. Note that if getFps hadn't been run before it will return zero.
+     *
+     * @return current FPS.
+     */
     public static long getFps() {
-        counter++;
-        if (startTime == 0) {
-            startTime = System.currentTimeMillis();
-        }
-        if ((System.currentTimeMillis() - startTime) >= 1000) {
-            currentFps = counter;
-            counter = 0;
-            startTime = System.currentTimeMillis();
-        }
-        return currentFps;
+	counter++;
+	if (startTime == 0) {
+	    startTime = System.currentTimeMillis();
+	}
+	if ((System.currentTimeMillis() - startTime) >= 1000) {
+	    currentFps = counter;
+	    counter = 0;
+	    startTime = System.currentTimeMillis();
+	}
+	return currentFps;
     }
 
     public static void startMeasuringDelay() {
-        startTimeForMeasureDelay = System.currentTimeMillis();
+	startTimeForMeasureDelay = System.currentTimeMillis();
     }
 
     public static long getDelay() {
-        long delay = System.currentTimeMillis() - startTimeForMeasureDelay;
-        return (delay > MAX_DELAY ? 0 : MAX_DELAY - delay);
+	long delay = System.currentTimeMillis() - startTimeForMeasureDelay;
+	return (delay > MAX_DELAY ? 0 : MAX_DELAY - delay);
     }
-    
+
     public static long getDelay(int maxfps) {
-        final int maxDelay = 1000 / maxfps;
-        long delay = System.currentTimeMillis() - startTimeForMeasureDelay;
-        return (delay > maxDelay ? 0 : maxDelay - delay);
+	final int maxDelay = 1000 / maxfps;
+	long delay = System.currentTimeMillis() - startTimeForMeasureDelay;
+	return (delay > maxDelay ? 0 : maxDelay - delay);
     }
 }

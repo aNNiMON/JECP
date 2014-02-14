@@ -14,22 +14,50 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.annimon.jecp;
 
 /**
+ * Listener for available input events.
  *
  * @author aNNiMON
  */
 public interface InputListener {
-    
+
+    /**
+     * Called on key pressing.
+     *
+     * @param key pressed key code.
+     */
     public void onKeyPressed(int key);
-    
-    public void onKeyReleased(int key);    
-    
+
+    /**
+     * Called on key releasing.
+     *
+     * @param key released key code.
+     */
+    public void onKeyReleased(int key);
+
+    /**
+     * Called on pointer pressed. Not available on Java ME devices.
+     *
+     * @param x
+     * @param y
+     */
     public void onPointerPressed(int x, int y);
-    
+
+    /**
+     * Called on pointer released. Not available on Java ME devices.
+     *
+     * @param x
+     * @param y
+     */
     public void onPointerReleased(int x, int y);
-    
+
+    /**
+     * Called on pointer dragged. Not available on Java ME devices.
+     *
+     * @param x
+     * @param y
+     */
     public void onPointerDragged(int x, int y);
 }

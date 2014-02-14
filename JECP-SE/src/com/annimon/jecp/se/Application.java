@@ -14,7 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.annimon.jecp.se;
 
 import com.annimon.jecp.ApplicationListener;
@@ -25,54 +24,67 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 /**
+ * Main entry for standart desktop GUI-apps.
  *
  * @author aNNiMON
  */
 public abstract class Application extends JFrame implements WindowListener {
-    
+
     private final ApplicationListener listener;
     private final PaintPanel panel;
 
+    /**
+     * Standart constructor for apps.
+     *
+     * @param listener listens application-based events.
+     * @param width width of the screen.
+     * @param height height of the screen.
+     */
     public Application(ApplicationListener listener, int width, int height) {
-        this.listener = listener;
-        addWindowListener(Application.this);
-        setLocationByPlatform(true);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        
-        Jecp.helper = new JecpHelper(this);
-        listener.onStartApp(width, height);
-        panel = new PaintPanel(listener, width, height);
-        add(panel);
-        pack();
-        
-        setVisible(true);
+	this.listener = listener;
+	addWindowListener(Application.this);
+	setLocationByPlatform(true);
+	setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+	Jecp.helper = new JecpHelper(this);
+	listener.onStartApp(width, height);
+	panel = new PaintPanel(listener, width, height);
+	add(panel);
+	pack();
+
+	setVisible(true);
     }
 
     @Override
     public void windowClosing(WindowEvent e) {
-        listener.onDestroyApp();
-        setVisible(false);
-        dispose();
+	listener.onDestroyApp();
+	setVisible(false);
+	dispose();
     }
-    
+
     @Override
     public void windowDeactivated(WindowEvent e) {
-        listener.onPauseApp();
+	listener.onPauseApp();
     }
-    
-    @Override
-    public void windowOpened(WindowEvent e) { }
 
     @Override
-    public void windowClosed(WindowEvent e) { }
-    
-    @Override
-    public void windowIconified(WindowEvent e) { }
+    public void windowOpened(WindowEvent e) {
+    }
 
     @Override
-    public void windowDeiconified(WindowEvent e) { }
+    public void windowClosed(WindowEvent e) {
+    }
 
     @Override
-    public void windowActivated(WindowEvent e) { }
-    
+    public void windowIconified(WindowEvent e) {
+    }
+
+    @Override
+    public void windowDeiconified(WindowEvent e) {
+    }
+
+    @Override
+    public void windowActivated(WindowEvent e) {
+    }
+
 }
