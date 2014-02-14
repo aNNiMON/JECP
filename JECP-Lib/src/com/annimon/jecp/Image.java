@@ -14,26 +14,40 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.annimon.jecp;
 
 import java.io.IOException;
 import java.io.InputStream;
 
 /**
+ * An image class to be used in all JECP library.
  *
  * @author aNNiMON
  */
 public abstract class Image {
-    
+
+    /**
+     * Returns new image for fair uses.
+     *
+     * @param res a path to load image from inside a jar file.
+     * @return image to use.
+     * @throws IOException if image cant'be loaded
+     */
     public static Image createImage(String res) throws IOException {
-        return Jecp.helper.init(res);
+	return Jecp.helper.init(res);
     }
-    
+
+    /**
+     * Returns new image for fair uses.
+     *
+     * @param is a stream to load image from.
+     * @return image to use.
+     * @throws IOException if image can't be loaded.
+     */
     public static Image createImage(InputStream is) throws IOException {
-        return Jecp.helper.init(is);
+	return Jecp.helper.init(is);
     }
-    
+
     public abstract int getWidth();
 
     public abstract int getHeight();

@@ -14,20 +14,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.annimon.jecp;
 
 /**
+ * Library-util class to control platform-depending things etc.
  *
  * @author aNNiMON
  */
 public class Jecp {
-    
+
+    //Should it be encapsulated?
     public static InputListener inputListener;
-    
+
+    //Should it be encapsulated?
     public static HelperInterface helper;
-    
+
     public static void exitApp() {
-        helper.exitApp();
+	helper.exitApp();
     }
 }

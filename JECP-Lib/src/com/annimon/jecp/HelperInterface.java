@@ -14,21 +14,38 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.annimon.jecp;
 
 import java.io.IOException;
 import java.io.InputStream;
 
 /**
+ * Utility interface to hold platforms together.
  *
  * @author aNNiMON
  */
 public interface HelperInterface {
-    
+
+    /**
+     * Returns new image for fair uses.
+     *
+     * @param res a path to load image from inside a jar file.
+     * @return image to use.
+     * @throws IOException if image cant'be loaded
+     */
     public Image init(String res) throws IOException;
 
+    /**
+     * Returns new image for fair uses.
+     *
+     * @param is a stream to load image from.
+     * @return image to use.
+     * @throws IOException if image can't be loaded.
+     */
     public Image init(InputStream is) throws IOException;
-    
+
+    /**
+     * Exits the app.
+     */
     public void exitApp();
 }
