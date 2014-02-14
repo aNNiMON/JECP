@@ -31,7 +31,7 @@ public interface HelperInterface {
      *
      * @param res a path to load image from inside a jar file.
      * @return image to use.
-     * @throws IOException if image cant'be loaded
+     * @throws IOException if image can't be loaded.
      */
     public Image init(String res) throws IOException;
 

@@ -18,14 +18,16 @@
 package com.annimon.jecp.se;
 
 import com.annimon.jecp.ConsoleApplicationListener;
-import com.annimon.jecp.Jecp;
+import java.util.Scanner;
 
 /**
  * Main entry for console applications.
  *
  * @author aNNiMON
  */
-public abstract class ConsoleApplication {
+public abstract class ConsoleApplication implements ConsoleApplicationListener.Console {
+    
+    private final Scanner scanner;
 
     /**
      * Standart constructor for apps.
@@ -33,7 +35,27 @@ public abstract class ConsoleApplication {
      * @param listener listens application-based events.
      */
     public ConsoleApplication(ConsoleApplicationListener listener) {
-	Jecp.helper = new JecpHelper(this);
-	listener.onStartApp();
+        scanner = new Scanner(System.in); // TODO: Add Unicode
+	listener.onStartApp(ConsoleApplication.this);
+    }
+
+    @Override
+    public void print(String text) {
+        System.out.print(text);
+    }
+
+    @Override
+    public void println(String text) {
+        System.out.println(text);
+    }
+
+    @Override
+    public String read() {
+        return scanner.next();
+    }
+
+    @Override
+    public String readln() {
+        return scanner.nextLine();
     }
 }

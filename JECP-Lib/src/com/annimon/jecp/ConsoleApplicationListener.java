@@ -23,5 +23,17 @@ package com.annimon.jecp;
  */
 public interface ConsoleApplicationListener {
     
-    public void onStartApp();
+    public void onStartApp(Console console);
+    
+    
+    public interface Console {
+        
+        public void print(String text);
+        
+        public void println(String text);
+        
+        public String read();
+        
+        public String readln();
+    }
 }
