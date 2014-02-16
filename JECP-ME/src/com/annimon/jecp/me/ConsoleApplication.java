@@ -43,7 +43,7 @@ public abstract class ConsoleApplication extends MIDlet
     /**
      * Standart constructor for console apps.
      *
-     * @param listener listens application-based events.
+     * @param listener listens console application-based events.
      */
     public ConsoleApplication(ConsoleApplicationListener listener) {
         this("JECP Console", listener);
@@ -53,7 +53,7 @@ public abstract class ConsoleApplication extends MIDlet
      * Constructor for console apps with custom title.
      *
      * @param title form title.
-     * @param listener listens application-based events.
+     * @param listener listens console application-based events.
      */
     public ConsoleApplication(String title, ConsoleApplicationListener listener) {
         this.listener = listener;
@@ -73,8 +73,9 @@ public abstract class ConsoleApplication extends MIDlet
         notifyDestroyed();
     }
     
-    private TextField initTextFied() {
-        TextField tf = new TextField("Enter text:", "", 8192, TextField.ANY);
+    private TextField initTextFied(String title) {
+        final String tfTitle = (title == null) ? "Enter text:" : title;
+        TextField tf = new TextField(tfTitle, "", 8192, TextField.ANY);
         tf.addCommand(CMDTEXT_OK);
         tf.setDefaultCommand(CMDTEXT_OK);
         tf.setItemCommandListener(this);
@@ -99,7 +100,11 @@ public abstract class ConsoleApplication extends MIDlet
     }
 
     public String read() {
-        TextField tf = initTextFied();
+        return read(null);
+    }
+    
+    public String read(String title) {
+        TextField tf = initTextFied(title);
         form.append(tf);
         synchronized (this) {
             try {
@@ -112,6 +117,6 @@ public abstract class ConsoleApplication extends MIDlet
     }
 
     public String readln() {
-        return read();
+        return read(null);
     }
 }

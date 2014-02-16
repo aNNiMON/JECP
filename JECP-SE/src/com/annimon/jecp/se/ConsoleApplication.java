@@ -32,7 +32,7 @@ public abstract class ConsoleApplication implements ConsoleApplicationListener.C
     /**
      * Standart constructor for apps.
      *
-     * @param listener listens application-based events.
+     * @param listener listens console application-based events.
      */
     public ConsoleApplication(ConsoleApplicationListener listener) {
         scanner = new Scanner(System.in); // TODO: Add Unicode
@@ -51,6 +51,12 @@ public abstract class ConsoleApplication implements ConsoleApplicationListener.C
 
     @Override
     public String read() {
+        return scanner.next();
+    }
+    
+    @Override
+    public String read(String title) {
+        System.out.println(title);
         return scanner.next();
     }
 

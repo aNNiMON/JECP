@@ -98,8 +98,14 @@ public abstract class ConsoleApplication extends Activity
 
     @Override
     public String read() {
+        return read(null);
+    }
+    
+    @Override
+    public String read(final String title) {
         runOnUiThread(new Runnable() {
             public void run() {
+                mInputTextDialog.setTitle(title == null ? "Enter text:" : title);
                 mInputTextDialog.show();
             }
         });
@@ -116,7 +122,7 @@ public abstract class ConsoleApplication extends Activity
 
     @Override
     public String readln() {
-        return read();
+        return read(null);
     }
     
     private final class InputTextDialog extends AlertDialog {
@@ -126,7 +132,6 @@ public abstract class ConsoleApplication extends Activity
             mInputEditText = new EditText(context);
             setCancelable(false);
             setView(mInputEditText);
-            setTitle("Enter text:");
             setButton(AlertDialog.BUTTON_POSITIVE, getString(android.R.string.ok), new OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {

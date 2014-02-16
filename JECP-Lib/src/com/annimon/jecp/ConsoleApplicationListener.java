@@ -34,6 +34,8 @@ public interface ConsoleApplicationListener {
         
         public String read();
         
+        public String read(String title);
+        
         public String readln();
     }
 }
