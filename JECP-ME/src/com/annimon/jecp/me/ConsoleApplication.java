@@ -104,6 +104,9 @@ public abstract class ConsoleApplication extends MIDlet
     }
     
     public String read(String title) {
+        if (title != null) {
+            println(title);
+        }
         TextField tf = initTextFied(title);
         form.append(tf);
         synchronized (this) {

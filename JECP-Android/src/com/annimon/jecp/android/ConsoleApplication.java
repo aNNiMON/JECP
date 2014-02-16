@@ -93,7 +93,7 @@ public abstract class ConsoleApplication extends Activity
 
     @Override
     public void println(String text) {
-        print(text + "\n");
+        print(text + '\n');
     }
 
     @Override
@@ -105,6 +105,10 @@ public abstract class ConsoleApplication extends Activity
     public String read(final String title) {
         runOnUiThread(new Runnable() {
             public void run() {
+                if (title != null) {
+                    mTextView.append(title + '\n');
+                }
+                mInputEditText.setText("");
                 mInputTextDialog.setTitle(title == null ? "Enter text:" : title);
                 mInputTextDialog.show();
             }
