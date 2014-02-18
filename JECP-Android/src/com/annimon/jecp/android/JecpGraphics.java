@@ -19,6 +19,7 @@ package com.annimon.jecp.android;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Path;
 import com.annimon.jecp.Image;
 
 /**
@@ -63,6 +64,15 @@ public class JecpGraphics extends com.annimon.jecp.Graphics {
     public void fillRect(int x, int y, int width, int height) {
         mPaint.setStyle(Paint.Style.FILL);
         mCanvas.drawRect(x, y, x + width, y + height, mPaint);
+    }
+    
+    @Override
+    public void fillTriangle(int x1, int y1, int x2, int y2, int x3, int y3) {
+        final Path path = new Path();
+        path.moveTo(x1, y1);
+        path.lineTo(x2, y2);
+        path.lineTo(x3, y3);
+        mCanvas.drawPath(path, mPaint);
     }
     
     @Override
