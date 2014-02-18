@@ -57,6 +57,13 @@ public class JecpGraphics extends com.annimon.jecp.Graphics {
     public void fillRect(int x, int y, int width, int height) {
 	g.fillRect(x, y, width, height);
     }
+    
+    @Override
+    public void fillTriangle(int x1, int y1, int x2, int y2, int x3, int y3) {
+        final int[] x = new int[] { x1, x2, x3 };
+        final int[] y = new int[] { y1, y2, y3 };
+        g.fillPolygon(x, y, 3);
+    }
 
     @Override
     public int getTextWidth(String text) {
