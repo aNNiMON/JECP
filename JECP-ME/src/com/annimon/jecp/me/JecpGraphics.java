@@ -54,6 +54,10 @@ public class JecpGraphics extends com.annimon.jecp.Graphics {
         g.fillRect(x, y, width, height);
     }
     
+    public void fillTriangle(int x1, int y1, int x2, int y2, int x3, int y3) {
+        g.fillTriangle(x1, y1, x2, y2, x3, y3);
+    }
+    
     public int getTextWidth(String text) {
         return g.getFont().stringWidth(text);
     }
