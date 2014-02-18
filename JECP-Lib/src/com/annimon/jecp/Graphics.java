@@ -71,6 +71,17 @@ public abstract class Graphics {
      * @param height height of rectangle.
      */
     public abstract void fillRect(int x, int y, int width, int height);
+    
+    /**
+     * Draws a filled triangle using current color.
+     * @param x1 x position of first point
+     * @param y1 y position of first point
+     * @param x2 x position of second point
+     * @param y2 y position of second point
+     * @param x3 x position of third point
+     * @param y3 y position of third point
+     */
+    public abstract void fillTriangle(int x1, int y1, int x2, int y2, int x3, int y3);
 
     /**
      * Returns width of a text using current font.
