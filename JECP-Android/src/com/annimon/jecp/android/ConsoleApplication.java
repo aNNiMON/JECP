@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import com.annimon.jecp.ConsoleApplicationListener;
 
@@ -59,7 +60,9 @@ public abstract class ConsoleApplication extends Activity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mTextView = new TextView(this);
-        setContentView(mTextView);
+        final ScrollView scrollView = new ScrollView(this);
+        scrollView.addView(mTextView);
+        setContentView(scrollView);
         
         mIsPauseThread = false;
         mInputTextDialog = new InputTextDialog(this);
