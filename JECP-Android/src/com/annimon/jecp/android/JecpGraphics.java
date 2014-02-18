@@ -72,6 +72,7 @@ public class JecpGraphics extends com.annimon.jecp.Graphics {
         path.moveTo(x1, y1);
         path.lineTo(x2, y2);
         path.lineTo(x3, y3);
+        mPaint.setStyle(Paint.Style.FILL);
         mCanvas.drawPath(path, mPaint);
     }
     
