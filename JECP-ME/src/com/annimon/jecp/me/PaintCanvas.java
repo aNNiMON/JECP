@@ -23,6 +23,7 @@ import com.annimon.jecp.Keys;
 import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.game.Sprite;
 
 
 /**
@@ -32,16 +33,23 @@ import javax.microedition.lcdui.Image;
 public class PaintCanvas extends Canvas {
     
     private final ApplicationListener listener;
+    private final boolean isLandscape;
     private final DrawingThread thread;
     private final Image image;
     private final JecpGraphics graphics;
+    
+    private int width, height;
 
-    public PaintCanvas(ApplicationListener listener) {
+    public PaintCanvas(ApplicationListener listener, boolean isLandscape) {
         this.listener = listener;
-        
+        this.isLandscape = isLandscape;
         setFullScreenMode(true);
-        int width = getWidth();
-        int height = getHeight();
+        width = getWidth();
+        height = getHeight();
+        if (isLandscape) {
+            width = height;
+            height = getWidth();
+        }
         image = Image.createImage(width, height);
         Graphics g = image.getGraphics();
         graphics = new JecpGraphics(g);
@@ -55,7 +63,12 @@ public class PaintCanvas extends Canvas {
 
     protected void paint(Graphics g) {
         listener.onPaint(graphics);
-        g.drawImage(image, 0, 0, Graphics.TOP | Graphics.LEFT);
+        if (isLandscape) {
+            g.drawRegion(image, 0, 0, width, height, Sprite.TRANS_ROT90,
+                    0, 0, Graphics.TOP | Graphics.LEFT);
+        } else {
+            g.drawImage(image, 0, 0, Graphics.TOP | Graphics.LEFT);
+        }
     }
     
     protected void keyPressed(int keyCode) {
@@ -74,29 +87,44 @@ public class PaintCanvas extends Canvas {
     
     protected void pointerDragged(int x, int y) {
         if (Jecp.inputListener != null) {
-            Jecp.inputListener.onPointerDragged(x, y);
+            if (isLandscape) {
+                Jecp.inputListener.onPointerDragged(y, height - x);
+            } else Jecp.inputListener.onPointerDragged(x, y);
         }
     }
     
     protected void pointerPressed(int x, int y) {
         if (Jecp.inputListener != null) {
-            Jecp.inputListener.onPointerPressed(x, y);
+            if (isLandscape) {
+                Jecp.inputListener.onPointerPressed(y, height - x);
+            } else Jecp.inputListener.onPointerPressed(x, y);
         }
     }
     
     protected void pointerReleased(int x, int y) {
         if (Jecp.inputListener != null) {
-            Jecp.inputListener.onPointerReleased(x, y);
+            if (isLandscape) {
+                Jecp.inputListener.onPointerReleased(y, height - x);
+            } else Jecp.inputListener.onPointerReleased(x, y);
         }
     }
     
     private int convertDpadKeys(int keyCode) {
-        int ga = getGameAction(keyCode);
+        final int ga = getGameAction(keyCode);
         if (ga == UP && keyCode != KEY_NUM2) keyCode = Keys.DPAD_UP;
         else if (ga == DOWN && keyCode != KEY_NUM8) keyCode = Keys.DPAD_DOWN;
         else if (ga == LEFT && keyCode != KEY_NUM4) keyCode = Keys.DPAD_LEFT;
         else if (ga == RIGHT && keyCode != KEY_NUM6) keyCode = Keys.DPAD_RIGHT;
         else if (ga == FIRE && keyCode != KEY_NUM5) keyCode = Keys.DPAD_FIRE;
+        else return keyCode;
+        if (isLandscape) {
+            // Dpad code is in range -501..-504, we need to increase code by 1.
+            if ( (Keys.DPAD_DOWN <= keyCode) && (keyCode < Keys.DPAD_LEFT) ) {
+                keyCode++;
+            } else if (keyCode == Keys.DPAD_LEFT) {
+                keyCode = Keys.DPAD_DOWN;
+            }
+        }
         return keyCode;
     }
     

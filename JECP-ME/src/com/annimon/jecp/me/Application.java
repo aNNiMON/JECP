@@ -29,18 +29,24 @@ import javax.microedition.midlet.MIDlet;
 public abstract class Application extends MIDlet {
     
     private final ApplicationListener listener;
+    private final boolean isLandscape;
     private static MIDlet midlet;
     private static Display display;
     
     public Application(ApplicationListener listener) {
+        this(listener, false);
+    }
+    
+    public Application(ApplicationListener listener, boolean isLandscape) {
         this.listener = listener;
+        this.isLandscape = isLandscape;
         Jecp.helper = new JecpHelper(this);
     }
     
     protected final void startApp() {
         midlet = this;
         display = Display.getDisplay(this);
-        display.setCurrent(new PaintCanvas(listener));
+        display.setCurrent(new PaintCanvas(listener, isLandscape));
     }
 
     protected final void pauseApp() {
