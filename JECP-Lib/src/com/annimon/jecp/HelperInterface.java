@@ -43,6 +43,18 @@ public interface HelperInterface {
      * @throws IOException if image can't be loaded.
      */
     public Image init(InputStream is) throws IOException;
+    
+    /**
+     * Returns stored preferences if exists.
+     * @return byte array of stored data.
+     */
+    public byte[] loadPrefs();
+    
+    /**
+     * Returns preferences to write.
+     * @param data byte array to store.
+     */
+    public void savePrefs(byte[] data);
 
     /**
      * Exits the app.
