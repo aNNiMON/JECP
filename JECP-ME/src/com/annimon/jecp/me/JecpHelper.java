@@ -41,9 +41,17 @@ class JecpHelper implements HelperInterface {
     public Image init(InputStream is) throws IOException {
         return new ImageME(is);
     }
+    
+    public byte[] loadPrefs() {
+        return Prefs.load();
+    }
+
+    public void savePrefs(byte[] data) {
+        Prefs.save(data);
+    }
 
     public void exitApp() {
         app.destroyApp(true);
     }
-    
+
 }
