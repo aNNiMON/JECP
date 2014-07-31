@@ -2,7 +2,11 @@ package com.annimon.jecp.demo;
 
 import com.annimon.jecp.ApplicationListener;
 import com.annimon.jecp.Graphics;
+import com.annimon.jecp.Prefs;
 import com.annimon.jecp.demo.screens.*;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 
 /**
  * @author aNNiMON
@@ -20,13 +24,27 @@ public class Main implements ApplicationListener, Screen.OnNextScreenListener {
         this.width = width;
         this.height = height;
         
-        screenIndex = SCREEN_FIRST;
+        // Load preferences.
+        try {
+            DataInputStream prefs = Prefs.loadAsStream();
+            screenIndex = prefs.readInt();
+        } catch (IOException ex) {
+            // If unable to load preferences, init by defaults.
+            screenIndex = SCREEN_FIRST;
+        }
         initScreen();
     }
 
     public void onPauseApp() { }
 
-    public void onDestroyApp() { }
+    public void onDestroyApp() {
+        // Store preferences.
+        Prefs.saveAsStream(new Prefs.StoreListener() {
+            public void save(DataOutputStream dos) throws IOException {
+                dos.writeInt(screenIndex);
+            }
+        });
+    }
 
     public void onPaint(Graphics g) {
         currentScreen.onPaint(g);
