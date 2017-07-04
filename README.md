@@ -1,12 +1,12 @@
 Java Engine Cross-Platform
 ==========================
 
-##About
+## About
 
 JECP is an open source engine for create cross-platform games and applications on Java ME, Android and PC.
 
 
-##License
+## License
 ```
 Copyright 2014 Victor Melnik
 
